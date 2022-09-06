@@ -1,0 +1,12 @@
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\bin\Debug\AccesoDataBase.dll
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\bin\Debug\AccesoDataBase.pdb
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\obj\Debug\AccesoDataBase.csproj.AssemblyReference.cache
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\obj\Debug\AccesoDataBase.csproj.CoreCompileInputs.cache
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\obj\Debug\AccesoDataBase.dll
+C:\Users\Roberto\source\repos\AdminDepot\AccesoDataBase\obj\Debug\AccesoDataBase.pdb
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\bin\Debug\AccesoDataBase.dll
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\bin\Debug\AccesoDataBase.pdb
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\obj\Debug\AccesoDataBase.csproj.AssemblyReference.cache
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\obj\Debug\AccesoDataBase.csproj.CoreCompileInputs.cache
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\obj\Debug\AccesoDataBase.dll
+C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\AccesoDataBase\obj\Debug\AccesoDataBase.pdb

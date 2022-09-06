@@ -10,3 +10,15 @@ C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Vis
 C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.CoreCompileInputs.cache
 C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.exe
 C:\Users\Roberto\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\VistaArticulos.exe.config
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\VistaArticulos.exe
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\VistaArticulos.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.AssemblyReference.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.SuggestedBindingRedirects.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.frmArticulos.resources
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.frmGestion.resources
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.Properties.Resources.resources
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.GenerateResource.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.CoreCompileInputs.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.exe
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.pdb

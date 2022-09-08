@@ -4,7 +4,7 @@ using System.Data;
 
 namespace AccesoDataBase
 {
-    public class ConexionSQL : IDisposable
+    public class ConexionSQL 
     {
         private readonly string Conexion;
         private readonly SqlConnection sqlConnection;
@@ -29,7 +29,6 @@ namespace AccesoDataBase
             this.sqlConnection = new SqlConnection(Conexion);
         }
 
-      
         public SqlDataReader EjecutarConsultaDataReader(string consulta)
         {
             try
@@ -52,6 +51,11 @@ namespace AccesoDataBase
                 throw ex;
             }
             return Reader;
+        }
+        public void CerrarConexion()
+        {
+            if (sqlConnection.State == ConnectionState.Open)
+                sqlConnection.Dispose();
         }
         public int EjecutarQuery(string consulta)
         {
@@ -98,12 +102,6 @@ namespace AccesoDataBase
             return numQuery;
         }
 
-        public void Dispose()
-        {
-            if (sqlConnection.State == ConnectionState.Open)
-                sqlConnection.Close();
-            sqlConnection.Dispose();
-            NewSqlCommand.Dispose();
-        }
+        
     }
 }

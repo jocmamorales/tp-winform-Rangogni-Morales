@@ -16,5 +16,11 @@ namespace VistaArticulos
         {
             InitializeComponent();
         }
+
+        private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmArticulos frm = new frmArticulos();
+            frm.ShowDialog();
+        }
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace VistaArticulos
 {
@@ -15,6 +17,23 @@ namespace VistaArticulos
         public frmArticulos()
         {
             InitializeComponent();
+        }
+
+        private void frmArticulos_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+
+                List<Articulo> articulos = articuloNegocio.ListarArticulos();
+
+                dgvArtiulos.DataSource = articulos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }            
+            
         }
     }
 }

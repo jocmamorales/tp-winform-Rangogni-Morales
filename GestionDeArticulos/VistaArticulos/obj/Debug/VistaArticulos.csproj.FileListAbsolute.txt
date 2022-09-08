@@ -29,3 +29,10 @@ C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Vis
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\Negocio.pdb
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\AccesoDataBase.pdb
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.CopyComplete
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\Dominio.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\Negocio.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\AccesoDataBase.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\Dominio.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\Negocio.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\bin\Debug\AccesoDataBase.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\VistaArticulos\obj\Debug\VistaArticulos.csproj.CopyComplete

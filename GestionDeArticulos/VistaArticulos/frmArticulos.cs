@@ -27,7 +27,8 @@ namespace VistaArticulos
 
                 List<Articulo> articulos = articuloNegocio.ListarArticulos();
 
-                dgvArtiulos.DataSource = articulos;
+                dgvArticulos.DataSource = articulos;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
             }
             catch (Exception ex)
             {

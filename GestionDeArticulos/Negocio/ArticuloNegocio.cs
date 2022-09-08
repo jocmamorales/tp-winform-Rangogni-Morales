@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using AccesoDataBase;
 
 namespace Negocio
 {
@@ -14,6 +15,8 @@ namespace Negocio
                
         public List <Articulo> ListarArticulos()
         {
+            ConexionSQL conexion = new ConexionSQL("");
+
             return new List<Articulo> { articulo };
         }
 

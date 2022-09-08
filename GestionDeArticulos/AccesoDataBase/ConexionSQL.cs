@@ -29,32 +29,7 @@ namespace AccesoDataBase
             this.sqlConnection = new SqlConnection(Conexion);
         }
 
-        public DataSet EjecutarConsultaDataSet(string consulta)
-        {
-            DataSet dsConsulta = null;
-            try
-            {
-                sqlConnection.Open();
-                dsConsulta = new DataSet("Consulta");
-
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-                sqlDataAdapter.SelectCommand = new SqlCommand();
-                sqlDataAdapter.SelectCommand.Connection = sqlConnection;
-                sqlDataAdapter.SelectCommand.CommandText = consulta;
-                sqlDataAdapter.SelectCommand.CommandType = CommandType.Text;
-                sqlDataAdapter.Fill(dsConsulta);
-
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                sqlConnection.Close();
-            }
-            return dsConsulta;
-        }
+      
         public SqlDataReader EjecutarConsultaDataReader(string consulta)
         {
             try

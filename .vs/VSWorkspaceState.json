@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GestionDeArticulos",
+    "\\GestionDeArticulos\\AccesoDataBase"
   ],
-  "SelectedNode": "\\C:\\Users\\josem\\Source\\Repos\\tp-winform-Rangogni-Morales",
+  "SelectedNode": "\\GestionDeArticulos\\AccesoDataBase\\ConexionSQL.cs",
   "PreviewInSolutionExplorer": false
 }

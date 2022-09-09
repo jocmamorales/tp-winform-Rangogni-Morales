@@ -14,6 +14,7 @@ namespace VistaArticulos
 {
     public partial class frmArticulos : Form
     {
+        private List<Articulo> listaArticulo;
         public frmArticulos()
         {
             InitializeComponent();
@@ -25,16 +26,47 @@ namespace VistaArticulos
             {
                 ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
-                List<Articulo> articulos = articuloNegocio.ListarArticulos();
+                listaArticulo = articuloNegocio.ListarArticulos();
 
-                dgvArticulos.DataSource = articulos;
-                dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                dgvArticulos.DataSource = listaArticulo;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }            
-            
+            }
+
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxFiltroRapido(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulo.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+
+        }
+
+        private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+
+        }
+
     }
 }

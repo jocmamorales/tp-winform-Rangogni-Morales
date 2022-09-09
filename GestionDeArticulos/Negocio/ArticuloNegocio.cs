@@ -20,7 +20,7 @@ namespace Negocio
         {
             var list = new List<Articulo>();
             conexion = new ConexionSQL(ConfigurationManager.ConnectionStrings["Arts"].ToString());
-            string sql = "SELECT [Id],[Codigo],[Descripcion],[IdCategoria],[Precio] FROM ARTICULOS";
+            string sql = "SELECT [Id],[Codigo],[Nombre],[Descripcion],[IdCategoria],[Precio],[ImagenUrl] FROM ARTICULOS";
             try
             {
                 SqlDataReader dataReader = conexion.EjecutarConsultaDataReader(sql);
@@ -29,9 +29,11 @@ namespace Negocio
                     Articulo articulo = new Articulo();
                     articulo.Id = int.Parse(dataReader["Id"].ToString());
                     articulo.Codigo = dataReader["Codigo"].ToString();
+                    articulo.Nombre = dataReader["Nombre"].ToString();
                     articulo.Descripcion = dataReader["Descripcion"].ToString();
                     articulo.IdCategoria = int.Parse(dataReader["IdCategoria"].ToString());
                     articulo.Precio = decimal.Parse(dataReader["Precio"].ToString());
+                    articulo.ImagenUrl = dataReader["ImagenUrl"].ToString();
                     list.Add(articulo);
                 }
             }

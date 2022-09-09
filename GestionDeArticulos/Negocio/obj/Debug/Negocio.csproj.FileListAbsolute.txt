@@ -9,3 +9,14 @@ C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Neg
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.dll
 C:\Users\Roberto\source\repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\Negocio.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\Negocio.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\AccesoDataBase.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\Dominio.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\AccesoDataBase.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\bin\Debug\Dominio.pdb
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.dll
+C:\Users\josem\Source\Repos\tp-winform-Rangogni-Morales\GestionDeArticulos\Negocio\obj\Debug\Negocio.pdb

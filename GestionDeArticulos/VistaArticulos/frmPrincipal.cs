@@ -22,5 +22,11 @@ namespace VistaArticulos
             frmArticulos frm = new frmArticulos();
             frm.ShowDialog();
         }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbGenerico frmAbm = new frmAbGenerico("Categoria");
+            frmAbm.ShowDialog();
+        }
     }
 }

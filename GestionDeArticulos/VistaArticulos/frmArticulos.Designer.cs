@@ -34,7 +34,9 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.btnModificarArticulo = new System.Windows.Forms.Button();
+            this.pbxArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -45,6 +47,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(498, 296);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnNuevoArt
             // 
@@ -98,12 +101,22 @@
             this.btnModificarArticulo.Text = "+   Modificar";
             this.btnModificarArticulo.UseVisualStyleBackColor = true;
             // 
+            // pbxArticulo
+            // 
+            this.pbxArticulo.Location = new System.Drawing.Point(507, 51);
+            this.pbxArticulo.Name = "pbxArticulo";
+            this.pbxArticulo.Size = new System.Drawing.Size(338, 296);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArticulo.TabIndex = 6;
+            this.pbxArticulo.TabStop = false;
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1217, 383);
+            this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.txtFiltro);
@@ -117,6 +130,7 @@
             this.Text = "Artículos";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +144,6 @@
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Button btnModificarArticulo;
+        private System.Windows.Forms.PictureBox pbxArticulo;
     }
 }

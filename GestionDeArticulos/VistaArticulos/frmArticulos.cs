@@ -29,6 +29,7 @@ namespace VistaArticulos
                 listaArticulo = articuloNegocio.ListarArticulos();
 
                 dgvArticulos.DataSource = listaArticulo;
+                pbxArticulo.Load(listaArticulo[0].ImagenUrl);
 
             }
             catch (Exception ex)
@@ -68,5 +69,23 @@ namespace VistaArticulos
 
         }
 
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.ImagenUrl);
+
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pbxArticulo.Load("https://us.123rf.com/450wm/momoforsale/momoforsale2105/momoforsale210500063/169348832-no-hay-se%C3%B1al-disponible-de-imagen-aislada-en-la-ilustraci%C3%B3n-de-vector-de-fondo-blanco-.jpg?ver=6");
+            }
+        }
     }
 }

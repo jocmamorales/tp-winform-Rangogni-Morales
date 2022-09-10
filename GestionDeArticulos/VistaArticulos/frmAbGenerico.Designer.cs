@@ -56,7 +56,7 @@
             // 
             // btnMod
             // 
-            this.btnMod.Location = new System.Drawing.Point(93, 199);
+            this.btnMod.Location = new System.Drawing.Point(94, 249);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(75, 23);
             this.btnMod.TabIndex = 10;
@@ -66,7 +66,7 @@
             // 
             // btnAlta
             // 
-            this.btnAlta.Location = new System.Drawing.Point(12, 199);
+            this.btnAlta.Location = new System.Drawing.Point(13, 249);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(75, 23);
             this.btnAlta.TabIndex = 9;
@@ -76,16 +76,18 @@
             // 
             // dgvABM
             // 
+            this.dgvABM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvABM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvABM.Location = new System.Drawing.Point(13, 19);
             this.dgvABM.Name = "dgvABM";
+            this.dgvABM.ReadOnly = true;
             this.dgvABM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvABM.Size = new System.Drawing.Size(415, 174);
             this.dgvABM.TabIndex = 8;
             // 
             // txtDescrip
             // 
-            this.txtDescrip.Location = new System.Drawing.Point(79, 239);
+            this.txtDescrip.Location = new System.Drawing.Point(79, 210);
             this.txtDescrip.Name = "txtDescrip";
             this.txtDescrip.Size = new System.Drawing.Size(349, 20);
             this.txtDescrip.TabIndex = 7;
@@ -93,7 +95,7 @@
             // lblDescrip
             // 
             this.lblDescrip.AutoSize = true;
-            this.lblDescrip.Location = new System.Drawing.Point(10, 242);
+            this.lblDescrip.Location = new System.Drawing.Point(10, 213);
             this.lblDescrip.Name = "lblDescrip";
             this.lblDescrip.Size = new System.Drawing.Size(63, 13);
             this.lblDescrip.TabIndex = 6;

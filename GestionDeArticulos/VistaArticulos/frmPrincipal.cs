@@ -28,5 +28,16 @@ namespace VistaArticulos
             frmAbGenerico frmAbm = new frmAbGenerico("Categoria");
             frmAbm.ShowDialog();
         }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbGenerico frmAb = new frmAbGenerico("Marca");
+            frmAb.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

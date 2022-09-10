@@ -87,5 +87,11 @@ namespace VistaArticulos
                 pbxArticulo.Load("https://us.123rf.com/450wm/momoforsale/momoforsale2105/momoforsale210500063/169348832-no-hay-se%C3%B1al-disponible-de-imagen-aislada-en-la-ilustraci%C3%B3n-de-vector-de-fondo-blanco-.jpg?ver=6");
             }
         }
+
+        private void btnNuevoArt_Click(object sender, EventArgs e)
+        {
+            frmEditarArticulo editar = new frmEditarArticulo();
+            editar.ShowDialog();
+        }
     }
 }

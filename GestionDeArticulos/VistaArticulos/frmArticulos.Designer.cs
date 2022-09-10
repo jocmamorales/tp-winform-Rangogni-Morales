@@ -45,20 +45,21 @@
             this.dgvArticulos.Location = new System.Drawing.Point(4, 51);
             this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(498, 296);
+            this.dgvArticulos.Size = new System.Drawing.Size(212, 296);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnNuevoArt
             // 
             this.btnNuevoArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnNuevoArt.Location = new System.Drawing.Point(380, 353);
+            this.btnNuevoArt.Location = new System.Drawing.Point(348, 353);
             this.btnNuevoArt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNuevoArt.Name = "btnNuevoArt";
             this.btnNuevoArt.Size = new System.Drawing.Size(122, 29);
             this.btnNuevoArt.TabIndex = 1;
-            this.btnNuevoArt.Text = "+   Nuevo Articulo";
+            this.btnNuevoArt.Text = "+   Editar Articulo";
             this.btnNuevoArt.UseVisualStyleBackColor = true;
+            this.btnNuevoArt.Click += new System.EventHandler(this.btnNuevoArt_Click);
             // 
             // btnEliminar
             // 
@@ -103,7 +104,7 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(507, 51);
+            this.pbxArticulo.Location = new System.Drawing.Point(221, 51);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(338, 296);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

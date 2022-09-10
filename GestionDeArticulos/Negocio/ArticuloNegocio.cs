@@ -9,10 +9,10 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        ConexionSQL conexion=null;
+        ConexionSQL conexion = null;
         public Articulo articulo { get; set; }
-               
-        public List <Articulo> ListarArticulos()
+
+        public List<Articulo> ListarArticulos()
         {
             var list = new List<Articulo>();
             conexion = new ConexionSQL(ConfigurationManager.ConnectionStrings["Arts"].ToString());
@@ -41,7 +41,13 @@ namespace Negocio
             conexion.CerrarConexion();
             return list;
         }
+        public void agregar(Articulo nuevo)
+            { 
+        
+            }
 
-    }
-    
+
+
+}
+
 }

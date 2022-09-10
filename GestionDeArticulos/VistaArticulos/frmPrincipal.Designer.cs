@@ -88,7 +88,6 @@
             this.MaximizeBox = false;
             this.Name = "frmGestion";
             this.Text = "Menú de opciones";
-            this.TopMost = true;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

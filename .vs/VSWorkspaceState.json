@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GestionDeArticulos",
+    "\\GestionDeArticulos\\VistaArticulos"
   ],
+  "SelectedNode": "\\GestionDeArticulos\\VistaArticulos\\frmPrincipal.cs",
   "PreviewInSolutionExplorer": false
 }

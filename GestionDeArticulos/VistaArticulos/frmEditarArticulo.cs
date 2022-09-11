@@ -54,6 +54,8 @@ namespace VistaArticulos
                 articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
                 articulo.ImagenUrl = txtImagenEditar.Text;
                 //FALTA AGREGAR MARCA Y CATEGORIA
+                negocio.agregar(articulo);
+                MessageBox.Show("Articulo agregado exitosamente");
                 
             }
             catch (Exception ex)

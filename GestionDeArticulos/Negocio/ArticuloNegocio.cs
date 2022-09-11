@@ -10,7 +10,6 @@ namespace Negocio
     public class ArticuloNegocio
     {
         ConexionSQL conexion = null;
-        public Articulo articulo { get; set; }
 
         private void NuevaConexion()
         {
@@ -41,7 +40,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
+                conexion.CerrarConexion();
                 throw ex;
             }
             conexion.CerrarConexion();
@@ -72,7 +71,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
+                conexion.CerrarConexion();
                 throw ex;
             }
             conexion.CerrarConexion();
@@ -80,12 +79,12 @@ namespace Negocio
         }
         public void agregar(Articulo nuevo)
         {
-              try
+            try
             {
                 NuevaConexion();
                 string sql = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', '" + nuevo.IdMarca + "', '" + nuevo.IdCategoria + "', '" + nuevo.ImagenUrl + "','" + nuevo.Precio + "')";
                 conexion.EjecutarQuery(sql);
-                
+
             }
             catch (Exception ex)
             {
@@ -97,17 +96,17 @@ namespace Negocio
             }
         }
         public void modificar(Articulo nuevo)
-        {  
+        {
             try
             {
                 NuevaConexion();
                 string sql = "UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @ImagenUrl,Precio = @Precio WHERE Id=@id";
                 SqlCommand sql1 = new SqlCommand();
                 sql1.CommandText = sql;
-                
+
                 sql1.CommandType = System.Data.CommandType.Text;
                 sql1.Parameters.AddWithValue("@Codigo", nuevo.Codigo);
-                sql1.Parameters.AddWithValue("@Nombre", nuevo.Nombre); 
+                sql1.Parameters.AddWithValue("@Nombre", nuevo.Nombre);
                 sql1.Parameters.AddWithValue("@Descripcion", nuevo.Descripcion);
                 sql1.Parameters.AddWithValue("@idMarca", nuevo.IdMarca);
                 sql1.Parameters.AddWithValue("@idCategoria", nuevo.IdCategoria);
@@ -125,11 +124,6 @@ namespace Negocio
             {
                 conexion.CerrarConexion();
             }
-            
-        
         }
-
     }
-
-
 }

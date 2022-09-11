@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using Negocio.ModeloDTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace VistaArticulos
 {
     public partial class frmArticulos : Form
     {
-        private List<Articulo> listaArticulo;
+        private List<ArticuloDTO> articuloDTOs;
+        private List<Articulo> articulos;
+        private List<Categoria> categorias;
+        private List<Marca> marcas;
         public frmArticulos()
         {
             InitializeComponent();
@@ -24,13 +29,12 @@ namespace VistaArticulos
         {
             try
             {
-                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                listaArticulo = articuloNegocio.ListarArticulos();
-
-                dgvArticulos.DataSource = listaArticulo;
-                pbxArticulo.Load(listaArticulo[0].ImagenUrl);
+                ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
+                articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
+                dgvArticulos.DataSource = articuloDTOs;
+                pbxArticulo.Load(articuloDTOs[0].ImagenUrl);
                 FormatoGrilla();
-
+                FormatoCombos();
             }
             catch (Exception ex)
             {
@@ -39,51 +43,77 @@ namespace VistaArticulos
         }
         private void FormatoGrilla()
         {
+
+            dgvArticulos.Columns["Categoria_Art"].Visible = false;
+            dgvArticulos.Columns["Marca_Art"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["IdMarca"].Visible = false;
             dgvArticulos.Columns["IdCategoria"].Visible = false;
             dgvArticulos.Columns["ImagenUrl"].Visible = false;
             dgvArticulos.Columns["Precio"].Visible = false;
-
+            dgvArticulos.Columns["Codigo"].DisplayIndex = 0;
+            dgvArticulos.Columns["Nombre"].DisplayIndex = 1;
+            dgvArticulos.Columns["Categoria"].DisplayIndex = 2;
         }
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void FormatoCombos()
         {
+            try
+            {
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                Categoria categoriaTodas = new Categoria
+                {
+                    Id = 0,
+                    Descripcion = "Todos"
+                };
+                categorias = new List<Categoria>();
+                categorias.Add(categoriaTodas);
+                categorias.AddRange(categoriaNegocio.Categorias());
+                cmbCategoría.DataSource = categorias;
+                cmbCategoría.DisplayMember = "Descripcion";
+                cmbCategoría.ValueMember = "Id";
 
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                Marca marcaTodas = new Marca
+                {
+                    Id = 0,
+                    Descripcion = "Todos"
+                };
+                marcas = new List<Marca>();
+                marcas.Add(marcaTodas);
+                marcas.AddRange(marcaNegocio.Marcas());
+                cmbMarca.DataSource = marcas;
+                cmbMarca.DisplayMember = "Descripcion";
+                cmbMarca.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
         private void txtBoxFiltroRapido(object sender, EventArgs e)
         {
-            List<Articulo> listaFiltrada;
+            List<ArticuloDTO> listaFiltrada;
             string filtro = txtFiltro.Text;
 
             if (filtro != "")
-            {
-                listaFiltrada = listaArticulo.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()));
-            }
+                listaFiltrada = articuloDTOs.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()));
             else
-            {
-                listaFiltrada = listaArticulo;
-            }
+                listaFiltrada = articuloDTOs;
+
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
             FormatoGrilla();
         }
 
-        private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-
-        }
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
 
-            Articulo seleccionado = null;
+            ArticuloDTO artSel = null;
             if (dgvArticulos.SelectedRows.Count > 0)
             {
-                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.ImagenUrl);
+                artSel = (ArticuloDTO)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(artSel.ImagenUrl);
             }
         }
         private void cargarImagen(string imagen)
@@ -102,17 +132,68 @@ namespace VistaArticulos
         {
             string sqlWhere = "";
             frmEditarArticulo editar = null;
-            if (!txtFiltro.Text.Equals(""))
-            {
-                sqlWhere = " WHERE (codigo like '%" + txtFiltro.Text.Trim() + "&' OR nombre LIKE '%" + txtFiltro.Text + "%')";
-                editar = new frmEditarArticulo(sqlWhere);
-            }
-            else
-            {
+
+            sqlWhere = WhereSqlFiltros();
+
+            if (sqlWhere.Trim().Equals(""))
                 editar = new frmEditarArticulo();
-            }
+            else
+                editar = new frmEditarArticulo(sqlWhere);
 
             editar.ShowDialog();
+        }
+
+        private string WhereSqlFiltros()
+        {
+            string sqlWhere = string.Empty;
+            if (!txtFiltro.Text.Equals(""))
+                sqlWhere += " (codigo like '%" + txtFiltro.Text.Trim() + "&' OR nombre LIKE '%" + txtFiltro.Text + "%')";
+            if (cmbCategoría.SelectedValue.ToString() != "0")
+                sqlWhere += sqlWhere.Length > 0 ? " AND IdCategoria = " + cmbCategoría.SelectedValue: " IdCategoria = " + cmbCategoría.SelectedValue;
+            if (cmbMarca.SelectedValue.ToString() != "0")
+                sqlWhere += sqlWhere.Length > 0 ? " AND IdMarca = " + cmbMarca.SelectedValue : " IdMarca = " + cmbMarca.SelectedValue;
+            if (!sqlWhere.Trim().Equals(""))
+                sqlWhere = " WHERE " + sqlWhere;
+
+            return sqlWhere;
+        }
+
+        private void cmbMarca_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            List<ArticuloDTO> articulosGrilla = (List<ArticuloDTO>)dgvArticulos.DataSource;
+            List<ArticuloDTO> artsFiltrados = new List<ArticuloDTO>();
+            if (cmbMarca.SelectedValue.ToString() != "0")
+            {
+                artsFiltrados = articuloDTOs.FindAll(x => x.IdMarca.ToString().Contains(cmbMarca.SelectedValue.ToString()));
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = artsFiltrados;
+                FormatoGrilla();
+            }
+            if (cmbMarca.SelectedValue.ToString() == "0")
+            {
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = articuloDTOs;
+                FormatoGrilla();
+            }
+        }
+
+        private void cmbCategoría_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            List<ArticuloDTO> articulosGrilla = (List<ArticuloDTO>)dgvArticulos.DataSource;
+            List<ArticuloDTO> artsFiltrados = new List<ArticuloDTO>();
+            if (cmbCategoría.SelectedValue.ToString() != "0")
+            {
+                artsFiltrados = articuloDTOs.FindAll(x => x.IdMarca.ToString().Contains(cmbCategoría.SelectedValue.ToString()));
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = artsFiltrados;
+                FormatoGrilla();
+            }
+            if (cmbCategoría.SelectedValue.ToString() == "0")
+            {
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = articuloDTOs;
+                FormatoGrilla();
+            }
         }
     }
 }

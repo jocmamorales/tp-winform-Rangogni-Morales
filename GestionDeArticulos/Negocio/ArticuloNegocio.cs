@@ -32,6 +32,7 @@ namespace Negocio
                     articulo.Codigo = dataReader["Codigo"].ToString();
                     articulo.Nombre = dataReader["Nombre"].ToString();
                     articulo.Descripcion = dataReader["Descripcion"].ToString();
+                    articulo.IdMarca = int.Parse(dataReader["IdMarca"].ToString());
                     articulo.IdCategoria = int.Parse(dataReader["IdCategoria"].ToString());
                     articulo.Precio = decimal.Parse(dataReader["Precio"].ToString());
                     articulo.ImagenUrl = dataReader["ImagenUrl"].ToString();

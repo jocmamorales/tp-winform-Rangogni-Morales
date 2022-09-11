@@ -52,7 +52,7 @@ namespace Negocio
         {
             var list = new List<Articulo>();
             NuevaConexion();
-            string sql = "SELECT [Id],[Codigo],[Nombre],[Descripcion],[IdCategoria],[IdMarca],[Precio],[ImagenUrl] FROM ARTICULOS WHERE " + filtro;
+            string sql = "SELECT [Id],[Codigo],[Nombre],[Descripcion],[IdCategoria],[IdMarca],[Precio],[ImagenUrl] FROM ARTICULOS " + filtro;
             try
             {
                 SqlDataReader dataReader = conexion.EjecutarConsultaDataReader(sql);

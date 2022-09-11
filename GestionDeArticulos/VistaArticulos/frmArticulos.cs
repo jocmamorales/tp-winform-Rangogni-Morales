@@ -100,7 +100,18 @@ namespace VistaArticulos
 
         private void btnNuevoArt_Click(object sender, EventArgs e)
         {
-            frmEditarArticulo editar = new frmEditarArticulo();
+            string sqlWhere = "";
+            frmEditarArticulo editar = null;
+            if (!txtFiltro.Text.Equals(""))
+            {
+                sqlWhere = " WHERE (codigo like '%" + txtFiltro.Text.Trim() + "&' OR nombre LIKE '%" + txtFiltro.Text + "%')";
+                editar = new frmEditarArticulo(sqlWhere);
+            }
+            else
+            {
+                editar = new frmEditarArticulo();
+            }
+
             editar.ShowDialog();
         }
     }

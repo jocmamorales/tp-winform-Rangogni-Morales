@@ -101,16 +101,7 @@ namespace AccesoDataBase
             }
             return numQuery;
         }
-        //********* AGREGO DOS METODOS
-        public void setearConsulta(string consulta)
-        {
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandText = consulta;
-        }
-        public void setearParametro(string nombre, object valor)
-        {
-            command.Parameters.AddWithValue(nombre, valor);
-        }
+      
        
     }
 }

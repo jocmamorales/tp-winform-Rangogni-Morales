@@ -48,27 +48,12 @@ namespace Negocio
         }
         public void agregar(Articulo nuevo)
         {
-           // NuevaConexion();
-            
-
-
-            try
+              try
             {
-                //NuevaConexion datos = new NuevaConexion();
-                //ConexionSQL datos = new ConexionSQL();
-                /*
-                datos.setearConsulta ("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', '" + nuevo.IdMarca + "', '" + nuevo.IdCategoria + "', '" + nuevo.ImagenUrl + "','" + nuevo.Precio + "')");
-                               
-                datos.setearParametro("@Codigo",nuevo.Codigo);
-                datos.setearParametro("@Nombre", nuevo.Nombre);
-                datos.setearParametro("@Descripcion", nuevo.Descripcion);
-                datos.setearParametro("@idMarca", nuevo.IdMarca);
-                datos.setearParametro("@idCategoria", nuevo.IdCategoria);
-                datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
-                datos.setearParametro("@precio", nuevo.Precio);
-
-                conexion.EjecutarQueryCommand(datos);
-                */
+                NuevaConexion();
+                string sql = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', '" + nuevo.IdMarca + "', '" + nuevo.IdCategoria + "', '" + nuevo.ImagenUrl + "','" + nuevo.Precio + "')";
+                conexion.EjecutarQuery(sql);
+                
             }
             catch (Exception ex)
             {
@@ -80,26 +65,24 @@ namespace Negocio
             }
         }
         public void modificar(Articulo nuevo)
-        {  /* 
-            NuevaConexion();
-
-
-
+        {  
             try
             {
+                NuevaConexion();
+                string sql = "UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @ImagenUrl,Precio = @Precio WHERE Id=@id";
+                SqlCommand sql1 = new SqlCommand();
+                sql1.CommandText = sql;
                 
-
-                datos.setearConsulta = ("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, ImagenUrl = @ImagenUrl,Precio = @Precio WHERE Id=@id";
-
-                datos.setearParametro("@Codigo", nuevo.Codigo);
-                datos.setearParametro("@Nombre", nuevo.Nombre);
-                datos.setearParametro("@Descripcion", nuevo.Descripcion);
-                datos.setearParametro("@idMarca", nuevo.IdMarca);
-                datos.setearParametro("@idCategoria", nuevo.IdCategoria);
-                datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
-                datos.setearParametro("@precio", nuevo.Precio);
-                datos.setearParametro("@id", nuevo.Id);
-                conexion.EjecutarQueryCommand(datos);
+                sql1.CommandType = System.Data.CommandType.Text;
+                sql1.Parameters.AddWithValue("@Codigo", nuevo.Codigo);
+                sql1.Parameters.AddWithValue("@Nombre", nuevo.Nombre); 
+                sql1.Parameters.AddWithValue("@Descripcion", nuevo.Descripcion);
+                sql1.Parameters.AddWithValue("@idMarca", nuevo.IdMarca);
+                sql1.Parameters.AddWithValue("@idCategoria", nuevo.IdCategoria);
+                sql1.Parameters.AddWithValue("@imagenUrl", nuevo.ImagenUrl);
+                sql1.Parameters.AddWithValue("@precio", nuevo.Precio);
+                sql1.Parameters.AddWithValue("@id", nuevo.Id);
+                conexion.EjecutarQueryCommand(sql1);
 
             }
             catch (Exception ex)
@@ -111,7 +94,7 @@ namespace Negocio
                 conexion.CerrarConexion();
             }
             
-        */
+        
         }
 
     }

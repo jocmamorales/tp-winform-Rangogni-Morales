@@ -17,7 +17,6 @@ namespace VistaArticulos
     public partial class frmArticulos : Form
     {
         private List<ArticuloDTO> articuloDTOs;
-        private List<Articulo> articulos;
         private List<Categoria> categorias;
         private List<Marca> marcas;
         public frmArticulos()

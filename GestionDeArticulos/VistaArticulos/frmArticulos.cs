@@ -25,20 +25,28 @@ namespace VistaArticulos
             try
             {
                 ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-
                 listaArticulo = articuloNegocio.ListarArticulos();
 
                 dgvArticulos.DataSource = listaArticulo;
                 pbxArticulo.Load(listaArticulo[0].ImagenUrl);
+                FormatoGrilla();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private void FormatoGrilla()
+        {
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+            dgvArticulos.Columns["IdMarca"].Visible = false;
+            dgvArticulos.Columns["IdCategoria"].Visible = false;
+            dgvArticulos.Columns["ImagenUrl"].Visible = false;
+            dgvArticulos.Columns["Precio"].Visible = false;
 
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
@@ -51,8 +59,7 @@ namespace VistaArticulos
 
             if (filtro != "")
             {
-                listaFiltrada = listaArticulo.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
-
+                listaFiltrada = listaArticulo.FindAll(x => x.Codigo.ToUpper().Contains(filtro.ToUpper()) || x.Nombre.ToUpper().Contains(filtro.ToUpper()));
             }
             else
             {
@@ -60,20 +67,24 @@ namespace VistaArticulos
             }
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
-
+            FormatoGrilla();
         }
 
         private void txtFiltro_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
 
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.ImagenUrl);
 
+            Articulo seleccionado = null;
+            if (dgvArticulos.SelectedRows.Count > 0)
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.ImagenUrl);
+            }
         }
         private void cargarImagen(string imagen)
         {
@@ -83,7 +94,6 @@ namespace VistaArticulos
             }
             catch (Exception)
             {
-
                 pbxArticulo.Load("https://us.123rf.com/450wm/momoforsale/momoforsale2105/momoforsale210500063/169348832-no-hay-se%C3%B1al-disponible-de-imagen-aislada-en-la-ilustraci%C3%B3n-de-vector-de-fondo-blanco-.jpg?ver=6");
             }
         }

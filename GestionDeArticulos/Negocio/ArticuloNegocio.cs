@@ -32,6 +32,38 @@ namespace Negocio
                     articulo.Codigo = dataReader["Codigo"].ToString();
                     articulo.Nombre = dataReader["Nombre"].ToString();
                     articulo.Descripcion = dataReader["Descripcion"].ToString();
+                    articulo.IdMarca = int.Parse(dataReader["IdMarca"].ToString());
+                    articulo.IdCategoria = int.Parse(dataReader["IdCategoria"].ToString());
+                    articulo.Precio = decimal.Parse(dataReader["Precio"].ToString());
+                    articulo.ImagenUrl = dataReader["ImagenUrl"].ToString();
+                    list.Add(articulo);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            conexion.CerrarConexion();
+            return list;
+        }
+
+        public List<Articulo> ListarArticulos(string filtro)
+        {
+            var list = new List<Articulo>();
+            NuevaConexion();
+            string sql = "SELECT [Id],[Codigo],[Nombre],[Descripcion],[IdCategoria],[IdMarca],[Precio],[ImagenUrl] FROM ARTICULOS WHERE " + filtro;
+            try
+            {
+                SqlDataReader dataReader = conexion.EjecutarConsultaDataReader(sql);
+                while (dataReader.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    articulo.Id = int.Parse(dataReader["Id"].ToString());
+                    articulo.Codigo = dataReader["Codigo"].ToString();
+                    articulo.Nombre = dataReader["Nombre"].ToString();
+                    articulo.Descripcion = dataReader["Descripcion"].ToString();
+                    articulo.IdMarca = int.Parse(dataReader["IdMarca"].ToString());
                     articulo.IdCategoria = int.Parse(dataReader["IdCategoria"].ToString());
                     articulo.Precio = decimal.Parse(dataReader["Precio"].ToString());
                     articulo.ImagenUrl = dataReader["ImagenUrl"].ToString();

@@ -61,7 +61,7 @@
             this.btnNuevoArt.Name = "btnNuevoArt";
             this.btnNuevoArt.Size = new System.Drawing.Size(122, 29);
             this.btnNuevoArt.TabIndex = 1;
-            this.btnNuevoArt.Text = "+   Editar Articulo";
+            this.btnNuevoArt.Text = "+   &Editar Articulo";
             this.btnNuevoArt.UseVisualStyleBackColor = true;
             this.btnNuevoArt.Click += new System.EventHandler(this.btnNuevoArt_Click);
             // 

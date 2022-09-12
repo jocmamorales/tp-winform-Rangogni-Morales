@@ -12,9 +12,9 @@ using Dominio;
 
 
 namespace VistaArticulos
-{  
+{
     public partial class frmEditarArticulo : Form
-    {   
+    {
         private Articulo articulo = null;
         private string filtro = string.Empty;
         public frmEditarArticulo()
@@ -22,11 +22,11 @@ namespace VistaArticulos
             InitializeComponent();
         }
         public frmEditarArticulo(string filtro)
-        {   
+        {
             InitializeComponent();
             this.filtro = filtro;
         }
-            public frmEditarArticulo(Articulo articulo)
+        public frmEditarArticulo(Articulo articulo)
         {
             InitializeComponent();
             this.articulo = articulo;
@@ -41,7 +41,7 @@ namespace VistaArticulos
                 txtDescripcionEditar.Text = articulo.Descripcion;
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;//FALTA AGREGAR CARGAR IMAGEN
-                
+
 
             }
         }
@@ -66,15 +66,29 @@ namespace VistaArticulos
 
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado= new Articulo();
-            
-            seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
-           seleccionado.Codigo= txtCodigoEditar.Text;
+            Articulo seleccionado = new Articulo();
+            try
+            {
+                seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
+                seleccionado.Codigo = txtCodigoEditar.Text;
+                seleccionado.Nombre = txtNombreEditar.Text;
+                seleccionado.Descripcion = txtDescripcionEditar.Text;
+                seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
+                seleccionado.ImagenUrl = txtImagenEditar.Text;
+                //seleccionado.IdMarca = cboMarcaEditar.SelectedItem;
+                //seleccionado.IdCategoria = cboCategoriaEditar.SelectedItem;
 
-            ArticuloNegocio aux = new ArticuloNegocio();
-            aux.modificar(seleccionado);
-            MessageBox.Show("Articulo modificado exitosamente");
-            cargarGrilla();
+                ArticuloNegocio aux = new ArticuloNegocio();
+                aux.modificar(seleccionado);
+                MessageBox.Show("Articulo modificado exitosamente");
+                cargarGrilla();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
             
 
         }
@@ -94,7 +108,7 @@ namespace VistaArticulos
                 //FALTA AGREGAR MARCA Y CATEGORIA
                 negocio.agregar(articulo);
                 MessageBox.Show("Articulo agregado exitosamente");
-                
+                cargarGrilla();
             }
             catch (Exception ex)
             {
@@ -105,8 +119,19 @@ namespace VistaArticulos
 
         private bool validarAgregar()
         {
-            
+
             throw new NotImplementedException();
+        }
+
+        private void LimpiarDatos()
+        {
+            txtCodigoEditar.Clear();
+            txtDescripcionEditar.Clear();
+            txtImagenEditar.Clear();
+            txtNombreEditar.Clear();
+            txtPrecioEditar.Clear();
+            cboCategoriaEditar.Items.Clear();
+            cboMarcaEditar.Items.Clear();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -125,9 +150,24 @@ namespace VistaArticulos
                 txtCodigoEditar.Text = artSel.Codigo;
                 txtDescripcionEditar.Text = artSel.Descripcion;
                 txtNombreEditar.Text = artSel.Nombre;
+                txtPrecioEditar.Text = artSel.Precio.ToString();
+                txtImagenEditar.Text = artSel.ImagenUrl;
+                cboCategoriaEditar.Text = artSel.IdCategoria.ToString();
+                cboMarcaEditar.Text = artSel.IdMarca.ToString();
+
 
             }
 
+        }
+
+        private void btnSalirEditarArticulo_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarDatos();
         }
     }
 }

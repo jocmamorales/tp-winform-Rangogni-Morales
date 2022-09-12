@@ -33,23 +33,27 @@ namespace VistaArticulos
         }
         private void frmEditarArticulo_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            if(filtro.Equals(""))
-            dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos();
-            else
-                dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos(filtro);
+            cargarGrilla();
             if (articulo != null)
             {
                 txtCodigoEditar.Text = articulo.Codigo;
                 txtNombreEditar.Text = articulo.Nombre;
                 txtDescripcionEditar.Text = articulo.Descripcion;
-                //txtPrecioEditar = articulo.Precio;
+                txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;//FALTA AGREGAR CARGAR IMAGEN
                 
 
             }
         }
 
+        private void cargarGrilla()
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            if (filtro.Equals(""))
+                dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos();
+            else
+                dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos(filtro);
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -62,14 +66,16 @@ namespace VistaArticulos
 
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
+            Articulo seleccionado= new Articulo();
             
             seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
-           
+           seleccionado.Codigo= txtCodigoEditar.Text;
 
-            ArticuloNegocio modificar = new ArticuloNegocio();
-            modificar.agregar(seleccionado);
+            ArticuloNegocio aux = new ArticuloNegocio();
+            aux.modificar(seleccionado);
             MessageBox.Show("Articulo modificado exitosamente");
+            cargarGrilla();
+            
 
         }
 
@@ -105,6 +111,22 @@ namespace VistaArticulos
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dgvArticulosEditar_SelectionChanged(object sender, EventArgs e)
+        {
+
+            Articulo artSel = null;
+            if (dgvArticulosEditar.SelectedRows.Count > 0)
+            {
+                artSel = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
+                //cargarImagen(artSel.ImagenUrl);
+                txtCodigoEditar.Text = artSel.Codigo;
+                txtDescripcionEditar.Text = artSel.Descripcion;
+                txtNombreEditar.Text = artSel.Nombre;
+
+            }
 
         }
     }

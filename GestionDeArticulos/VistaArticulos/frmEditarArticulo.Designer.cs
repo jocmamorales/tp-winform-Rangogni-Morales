@@ -47,10 +47,10 @@
             this.cboCategoriaEditar = new System.Windows.Forms.ComboBox();
             this.lblMarcaEditar = new System.Windows.Forms.Label();
             this.gbxDatosArticulo = new System.Windows.Forms.GroupBox();
-            this.lblCategoriaEditar = new System.Windows.Forms.Label();
-            this.dgvArticulosEditar = new System.Windows.Forms.DataGridView();
             this.txtPrecioEditar = new System.Windows.Forms.TextBox();
             this.lblPrecioEditar = new System.Windows.Forms.Label();
+            this.lblCategoriaEditar = new System.Windows.Forms.Label();
+            this.dgvArticulosEditar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxDatosArticulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).BeginInit();
@@ -238,6 +238,22 @@
             this.gbxDatosArticulo.TabStop = false;
             this.gbxDatosArticulo.Text = "Datos del Artículo";
             // 
+            // txtPrecioEditar
+            // 
+            this.txtPrecioEditar.Location = new System.Drawing.Point(113, 207);
+            this.txtPrecioEditar.Name = "txtPrecioEditar";
+            this.txtPrecioEditar.Size = new System.Drawing.Size(275, 20);
+            this.txtPrecioEditar.TabIndex = 16;
+            // 
+            // lblPrecioEditar
+            // 
+            this.lblPrecioEditar.AutoSize = true;
+            this.lblPrecioEditar.Location = new System.Drawing.Point(53, 207);
+            this.lblPrecioEditar.Name = "lblPrecioEditar";
+            this.lblPrecioEditar.Size = new System.Drawing.Size(43, 13);
+            this.lblPrecioEditar.TabIndex = 15;
+            this.lblPrecioEditar.Text = "Precio";
+            // 
             // lblCategoriaEditar
             // 
             this.lblCategoriaEditar.AutoSize = true;
@@ -254,22 +270,7 @@
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
             this.dgvArticulosEditar.Size = new System.Drawing.Size(387, 308);
             this.dgvArticulosEditar.TabIndex = 10;
-            // 
-            // txtPrecioEditar
-            // 
-            this.txtPrecioEditar.Location = new System.Drawing.Point(113, 207);
-            this.txtPrecioEditar.Name = "txtPrecioEditar";
-            this.txtPrecioEditar.Size = new System.Drawing.Size(275, 20);
-            this.txtPrecioEditar.TabIndex = 16;
-            // 
-            // lblPrecioEditar
-            // 
-            this.lblPrecioEditar.AutoSize = true;
-            this.lblPrecioEditar.Location = new System.Drawing.Point(53, 207);
-            this.lblPrecioEditar.Name = "lblPrecioEditar";
-            this.lblPrecioEditar.Size = new System.Drawing.Size(43, 13);
-            this.lblPrecioEditar.TabIndex = 15;
-            this.lblPrecioEditar.Text = "Precio";
+            this.dgvArticulosEditar.SelectionChanged += new System.EventHandler(this.dgvArticulosEditar_SelectionChanged);
             // 
             // frmEditarArticulo
             // 

@@ -9,14 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-
+using System.IO;
+using System.Configuration;
 
 namespace VistaArticulos
 {
     public partial class frmEditarArticulo : Form
     {
         private Articulo articulo = null;
+        private OpenFileDialog archivo = null;
         private string filtro = string.Empty;
+     
         public frmEditarArticulo()
         {
             InitializeComponent();
@@ -54,6 +57,21 @@ namespace VistaArticulos
             else
                 dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos(filtro);
         }
+        private void txtImagenEditar_TextChanged(object sender, EventArgs e)
+        {
+            cargarImagen(txtImagenEditar.Text);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArtEditar.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbxArtEditar.Load("https://us.123rf.com/450wm/momoforsale/momoforsale2105/momoforsale210500063/169348832-no-hay-se%C3%B1al-disponible-de-imagen-aislada-en-la-ilustraci%C3%B3n-de-vector-de-fondo-blanco-.jpg?ver=6");
+            }
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -80,6 +98,7 @@ namespace VistaArticulos
 
                 ArticuloNegocio aux = new ArticuloNegocio();
                 aux.modificar(seleccionado);
+                noGuardarImagen(txtImagenEditar.Text);
                 MessageBox.Show("Articulo modificado exitosamente");
                 cargarGrilla();
 
@@ -89,7 +108,7 @@ namespace VistaArticulos
 
                 MessageBox.Show(ex.ToString());
             }
-            
+
 
         }
 
@@ -99,13 +118,15 @@ namespace VistaArticulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                validarAgregar();
+                //validarAgregar();
                 articulo.Codigo = txtCodigoEditar.Text;
                 articulo.Nombre = txtNombreEditar.Text;
                 articulo.Descripcion = txtDescripcionEditar.Text;
                 articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
                 articulo.ImagenUrl = txtImagenEditar.Text;
-                //FALTA AGREGAR MARCA Y CATEGORIA
+                //articulo.IdCategoria = cboCategoriaEditar.SelectedItem.ToString();
+                //articulo.IdMarca = cboMarcaEditar.SelectedItem.ToString();
+
                 negocio.agregar(articulo);
                 MessageBox.Show("Articulo agregado exitosamente");
                 cargarGrilla();
@@ -169,5 +190,24 @@ namespace VistaArticulos
         {
             LimpiarDatos();
         }
+
+        private void btnImagenArchivo_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg; |png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImagenEditar.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+
+
+            }
+        }
+        private void noGuardarImagen(string x)
+        {
+            if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("http")))
+                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"]+ archivo.SafeFileName);
+        }
+
     }
 }

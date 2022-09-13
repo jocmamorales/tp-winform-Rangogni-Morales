@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxArtEditar = new System.Windows.Forms.PictureBox();
             this.lblEditarArticulo = new System.Windows.Forms.Label();
             this.btnModificarArticulo = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
@@ -52,19 +52,20 @@
             this.lblCategoriaEditar = new System.Windows.Forms.Label();
             this.dgvArticulosEditar = new System.Windows.Forms.DataGridView();
             this.btLimpiar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArtEditar)).BeginInit();
             this.gbxDatosArticulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbxArtEditar
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(417, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 130);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbxArtEditar.Location = new System.Drawing.Point(417, 39);
+            this.pbxArtEditar.Name = "pbxArtEditar";
+            this.pbxArtEditar.Size = new System.Drawing.Size(212, 130);
+            this.pbxArtEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArtEditar.TabIndex = 4;
+            this.pbxArtEditar.TabStop = false;
+            this.pbxArtEditar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblEditarArticulo
             // 
@@ -156,6 +157,7 @@
             this.btnImagenArchivo.TabIndex = 7;
             this.btnImagenArchivo.Text = "Archiv&o";
             this.btnImagenArchivo.UseVisualStyleBackColor = true;
+            this.btnImagenArchivo.Click += new System.EventHandler(this.btnImagenArchivo_Click);
             // 
             // txtImagenEditar
             // 
@@ -163,6 +165,7 @@
             this.txtImagenEditar.Name = "txtImagenEditar";
             this.txtImagenEditar.Size = new System.Drawing.Size(279, 20);
             this.txtImagenEditar.TabIndex = 6;
+            this.txtImagenEditar.TextChanged += new System.EventHandler(this.txtImagenEditar_TextChanged);
             // 
             // txtDescripcionEditar
             // 
@@ -304,7 +307,7 @@
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.lblEditarArticulo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxArtEditar);
             this.Controls.Add(this.gbxDatosArticulo);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1062, 459);
@@ -312,7 +315,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarArticulo";
             this.Load += new System.EventHandler(this.frmEditarArticulo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArtEditar)).EndInit();
             this.gbxDatosArticulo.ResumeLayout(false);
             this.gbxDatosArticulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).EndInit();
@@ -322,7 +325,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxArtEditar;
         private System.Windows.Forms.Label lblEditarArticulo;
         private System.Windows.Forms.Button btnModificarArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;

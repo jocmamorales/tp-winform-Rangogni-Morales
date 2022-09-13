@@ -78,7 +78,25 @@ namespace VistaArticulos
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
-            //eliminar();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de eliminar este artículo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta== DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargarGrilla();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+            
 
         }
 

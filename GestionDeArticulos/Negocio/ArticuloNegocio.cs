@@ -134,7 +134,7 @@ namespace Negocio
                 SqlCommand sql1 = new SqlCommand();
                 sql1.CommandText = sql;
                 sql1.CommandType = System.Data.CommandType.Text;
-                sql1.Parameters.AddWithValue("@IdCodigo", id);
+                sql1.Parameters.AddWithValue("@Id", id);
                 conexion.EjecutarQueryCommand(sql1);
             }
             catch (Exception ex)

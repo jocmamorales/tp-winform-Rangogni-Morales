@@ -44,9 +44,8 @@ namespace VistaArticulos
                 txtDescripcionEditar.Text = articulo.Descripcion;
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;
-
-
             }
+            FormatoCombos();
         }
 
         private void cargarGrilla()
@@ -79,6 +78,7 @@ namespace VistaArticulos
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
+            //eliminar();
 
         }
 
@@ -87,15 +87,16 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
-                validarEditar();
+              
                 seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
                 seleccionado.Descripcion = txtDescripcionEditar.Text;
+               
                 seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
                 seleccionado.ImagenUrl = txtImagenEditar.Text;
-                //seleccionado.IdMarca = cboMarcaEditar.SelectedItem;
-                //seleccionado.IdCategoria = cboCategoriaEditar.SelectedItem;
+                seleccionado.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
+                seleccionado.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
 
                 ArticuloNegocio aux = new ArticuloNegocio();
                 aux.modificar(seleccionado);
@@ -103,6 +104,10 @@ namespace VistaArticulos
                 MessageBox.Show("Articulo modificado exitosamente");
                 cargarGrilla();
 
+            }
+            catch (FormatException fex)
+            {
+                MessageBox.Show(fex.Message, "Precio mal ingresado");
             }
             catch (Exception ex)
             {
@@ -119,18 +124,20 @@ namespace VistaArticulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                //validarAgregar();
                 articulo.Codigo = txtCodigoEditar.Text;
                 articulo.Nombre = txtNombreEditar.Text;
                 articulo.Descripcion = txtDescripcionEditar.Text;
                 articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
                 articulo.ImagenUrl = txtImagenEditar.Text;
-                //articulo.IdCategoria = cboCategoriaEditar.SelectedItem.ToString();
-                //articulo.IdMarca = cboMarcaEditar.SelectedItem.ToString();
-
+                articulo.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
+                articulo.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
                 negocio.agregar(articulo);
                 MessageBox.Show("Articulo agregado exitosamente");
                 cargarGrilla();
+            }
+            catch(FormatException fex)
+            {
+                MessageBox.Show(fex.Message,"Precio mal ingresado"); 
             }
             catch (Exception ex)
             {
@@ -143,15 +150,15 @@ namespace VistaArticulos
             if (!(validarNumeros(txtPrecioEditar.Text)))
             {
                 MessageBox.Show("El campo solo se admite carga de numeros");
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
         private bool validarNumeros(string cadena)
         {   
-            foreach(char caracter in cadena)
+            foreach (char caracter in cadena)
             {
-                if(!(char.IsNumber(caracter)))
+                if (!(char.IsDigit(caracter)))
                     return false;
             }
             return true;
@@ -164,8 +171,8 @@ namespace VistaArticulos
             txtImagenEditar.Clear();
             txtNombreEditar.Clear();
             txtPrecioEditar.Clear();
-            cboCategoriaEditar.Items.Clear();
-            cboMarcaEditar.Items.Clear();
+            cboCategoriaEditar.SelectedItem = cboCategoriaEditar.Items[0];
+            cboMarcaEditar.SelectedItem = cboMarcaEditar.Items[0];
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -216,8 +223,46 @@ namespace VistaArticulos
         private void noGuardarImagenLocal(string x)
         {
             if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("HTTP")))
+                if(!File.Exists(ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName))
                 File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
         }
+        private void FormatoCombos()
+        {
+            List<Categoria> categorias = new List<Categoria>();
+            List<Marca> marcas = new List<Marca>();
 
+            try
+            {
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                Categoria categoriaTodas = new Categoria
+                {
+                    Id = 0,
+                    Descripcion = ""
+                };
+                categorias = new List<Categoria>();
+                categorias.Add(categoriaTodas);
+                categorias.AddRange(categoriaNegocio.Categorias());
+                cboCategoriaEditar.DataSource = categorias;
+                cboCategoriaEditar.DisplayMember = "Descripcion";
+                cboCategoriaEditar.ValueMember = "Id";
+
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                Marca marcaTodas = new Marca
+                {
+                    Id = 0,
+                    Descripcion = ""
+                };
+                marcas = new List<Marca>();
+                marcas.Add(marcaTodas);
+                marcas.AddRange(marcaNegocio.Marcas());
+                cboMarcaEditar.DataSource = marcas;
+                cboMarcaEditar.DisplayMember = "Descripcion";
+                cboMarcaEditar.ValueMember = "Id";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

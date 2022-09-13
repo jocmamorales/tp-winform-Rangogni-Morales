@@ -123,6 +123,7 @@
             // 
             // cmbCategoría
             // 
+            this.cmbCategoría.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoría.FormattingEnabled = true;
             this.cmbCategoría.Items.AddRange(new object[] {
             "Todos"});

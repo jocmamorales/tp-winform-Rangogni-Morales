@@ -245,7 +245,7 @@
             this.gbxDatosArticulo.Size = new System.Drawing.Size(390, 307);
             this.gbxDatosArticulo.TabIndex = 3;
             this.gbxDatosArticulo.TabStop = false;
-            this.gbxDatosArticulo.Text = "Datos del Artículo";
+            this.gbxDatosArticulo.Text = "Detalles";
             // 
             // txtPrecioEditar
             // 
@@ -313,7 +313,7 @@
             this.MinimumSize = new System.Drawing.Size(1062, 459);
             this.Name = "frmEditarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmEditarArticulo";
+            this.Text = "Edición";
             this.Load += new System.EventHandler(this.frmEditarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArtEditar)).EndInit();
             this.gbxDatosArticulo.ResumeLayout(false);

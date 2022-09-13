@@ -125,5 +125,24 @@ namespace Negocio
                 conexion.CerrarConexion();
             }
         }
+        public void eliminar(int id)
+        {
+            try
+            {
+                NuevaConexion();
+                string sql = "delete from ARTICULOS where id= @id";
+                SqlCommand sql1 = new SqlCommand();
+                sql1.CommandText = sql;
+                sql1.CommandType = System.Data.CommandType.Text;
+                sql1.Parameters.AddWithValue("@IdCodigo", id);
+                conexion.EjecutarQueryCommand(sql1);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

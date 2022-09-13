@@ -19,7 +19,7 @@ namespace VistaArticulos
         private Articulo articulo = null;
         private OpenFileDialog archivo = null;
         private string filtro = string.Empty;
-     
+
         public frmEditarArticulo()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace VistaArticulos
                 txtNombreEditar.Text = articulo.Nombre;
                 txtDescripcionEditar.Text = articulo.Descripcion;
                 txtPrecioEditar.Text = articulo.Precio.ToString();
-                txtImagenEditar.Text = articulo.ImagenUrl;//FALTA AGREGAR CARGAR IMAGEN
+                txtImagenEditar.Text = articulo.ImagenUrl;
 
 
             }
@@ -87,6 +87,7 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
+                validarEditar();
                 seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
@@ -98,7 +99,7 @@ namespace VistaArticulos
 
                 ArticuloNegocio aux = new ArticuloNegocio();
                 aux.modificar(seleccionado);
-                noGuardarImagen(txtImagenEditar.Text);
+                noGuardarImagenLocal(txtImagenEditar.Text);
                 MessageBox.Show("Articulo modificado exitosamente");
                 cargarGrilla();
 
@@ -137,11 +138,23 @@ namespace VistaArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private bool validarAgregar()
+        private bool validarEditar()
         {
-
-            throw new NotImplementedException();
+            if (!(validarNumeros(txtPrecioEditar.Text)))
+            {
+                MessageBox.Show("El campo solo se admite carga de numeros");
+                return true;
+            }
+            return false;
+        }
+        private bool validarNumeros(string cadena)
+        {   
+            foreach(char caracter in cadena)
+            {
+                if(!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
         }
 
         private void LimpiarDatos()
@@ -167,7 +180,6 @@ namespace VistaArticulos
             if (dgvArticulosEditar.SelectedRows.Count > 0)
             {
                 artSel = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
-                //cargarImagen(artSel.ImagenUrl);
                 txtCodigoEditar.Text = artSel.Codigo;
                 txtDescripcionEditar.Text = artSel.Descripcion;
                 txtNombreEditar.Text = artSel.Nombre;
@@ -175,7 +187,6 @@ namespace VistaArticulos
                 txtImagenEditar.Text = artSel.ImagenUrl;
                 cboCategoriaEditar.Text = artSel.IdCategoria.ToString();
                 cboMarcaEditar.Text = artSel.IdMarca.ToString();
-
 
             }
 
@@ -200,13 +211,12 @@ namespace VistaArticulos
                 txtImagenEditar.Text = archivo.FileName;
                 cargarImagen(archivo.FileName);
 
-
             }
         }
-        private void noGuardarImagen(string x)
+        private void noGuardarImagenLocal(string x)
         {
-            if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("http")))
-                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"]+ archivo.SafeFileName);
+            if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("HTTP")))
+                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
         }
 
     }

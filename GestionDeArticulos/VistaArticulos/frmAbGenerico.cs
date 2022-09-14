@@ -24,7 +24,6 @@ namespace VistaArticulos
                 CargarCategoria();
             if (_tipo == "Marca")
                 CargarMarca();
-
         }
 
         private void CargarCategoria()

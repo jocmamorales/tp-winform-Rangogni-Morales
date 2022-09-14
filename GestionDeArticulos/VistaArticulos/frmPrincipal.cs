@@ -23,21 +23,35 @@ namespace VistaArticulos
             frm.ShowDialog();
         }
 
-        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Finalizar el programa ", "Finalizar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+                this.Dispose();
+        }
+
+        private void altaModificacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAbGenerico frmAbm = new frmAbGenerico("Categoria");
             frmAbm.ShowDialog();
         }
 
-        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void altaModificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAbGenerico frmAb = new frmAbGenerico("Marca");
             frmAb.ShowDialog();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            frmArticulos frm = new frmArticulos();
+            frm.ShowDialog();
+        }
+
+        private void ediciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            frmEditarArticulo editar =  new frmEditarArticulo();
+            editar.ShowDialog();
         }
     }
 }

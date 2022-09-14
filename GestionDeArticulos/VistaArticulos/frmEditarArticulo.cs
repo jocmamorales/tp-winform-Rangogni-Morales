@@ -45,14 +45,13 @@ namespace VistaArticulos
                 txtDescripcionEditar.Text = articulo.Descripcion;
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;
+
             }
             FormatoCombos();
         }
         private void FormatoGrilla()
         {
 
-            //dgvArticulosEditar.Columns["Categoria_Art"].Visible = false;
-            //dgvArticulosEditar.Columns["Marca_Art"].Visible = false;
             dgvArticulosEditar.Columns["ImagenUrl"].HeaderText = "Origen Imagen";
             dgvArticulosEditar.Columns["Id"].Visible = false;
             dgvArticulosEditar.Columns["Descripcion"].Visible = true;
@@ -62,7 +61,7 @@ namespace VistaArticulos
             dgvArticulosEditar.Columns["Precio"].Visible = true;
             dgvArticulosEditar.Columns["Codigo"].Visible = true;
             dgvArticulosEditar.Columns["Nombre"].Visible = true;
-            //dgvArticulosEditar.Columns["Categoria"].DisplayIndex = 2;
+
         }
         private void cargarGrilla()
         {
@@ -126,8 +125,14 @@ namespace VistaArticulos
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
                 seleccionado.Descripcion = txtDescripcionEditar.Text;
-
-                seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
+                if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
+                {
+                    seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
+                }
+                else
+                {
+                    throw new FormatException();
+                }
                 seleccionado.ImagenUrl = txtImagenEditar.Text;
                 seleccionado.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
                 seleccionado.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
@@ -141,7 +146,7 @@ namespace VistaArticulos
             }
             catch (FormatException fex)
             {
-                MessageBox.Show(fex.Message, "Precio mal ingresado");
+                MessageBox.Show(fex.Message.ToString(), "Precio mal ingresado");
             }
             catch (Exception ex)
             {
@@ -161,18 +166,14 @@ namespace VistaArticulos
                 articulo.Codigo = txtCodigoEditar.Text;
                 articulo.Nombre = txtNombreEditar.Text;
                 articulo.Descripcion = txtDescripcionEditar.Text;
-                articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
-                /*
-                if (!validarNegativo(txtPrecioEditar.Text)) //devuelve true si tiene un char negativo
+                if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
                 {
                     articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
                 }
                 else
                 {
-                    MessageBox.Show("No puede ingresar numero negativo");
-                    
+                    throw new FormatException();
                 }
-                */
                 articulo.ImagenUrl = txtImagenEditar.Text;
                 articulo.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
                 articulo.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
@@ -209,20 +210,16 @@ namespace VistaArticulos
             return true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name=VERIFICA SI HAY SIMBOLO (-) en una cadena</param>
-        /// <returns></returns>
-        private bool validarNegativo(string cadena)
+        private bool validarPositivo(decimal numero)
         {
-
-            foreach (char caracter in cadena)
+            if (numero >= 0)
             {
-                if ("-".Equals(caracter))
-                    return true;
+                return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         private void LimpiarDatos()

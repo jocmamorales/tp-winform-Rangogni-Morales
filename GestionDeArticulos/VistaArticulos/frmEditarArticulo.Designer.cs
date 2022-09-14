@@ -61,7 +61,7 @@
             // 
             this.pbxArtEditar.Location = new System.Drawing.Point(417, 39);
             this.pbxArtEditar.Name = "pbxArtEditar";
-            this.pbxArtEditar.Size = new System.Drawing.Size(212, 130);
+            this.pbxArtEditar.Size = new System.Drawing.Size(212, 181);
             this.pbxArtEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArtEditar.TabIndex = 4;
             this.pbxArtEditar.TabStop = false;
@@ -80,7 +80,7 @@
             // btnModificarArticulo
             // 
             this.btnModificarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnModificarArticulo.Location = new System.Drawing.Point(468, 271);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(467, 316);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
             this.btnModificarArticulo.Size = new System.Drawing.Size(119, 26);
             this.btnModificarArticulo.TabIndex = 2;
@@ -91,7 +91,7 @@
             // btnAgregarArticulo
             // 
             this.btnAgregarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(468, 226);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(467, 270);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(119, 26);
             this.btnAgregarArticulo.TabIndex = 1;
@@ -102,7 +102,7 @@
             // btnEliminarArticulo
             // 
             this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(468, 313);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(467, 358);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(119, 26);
             this.btnEliminarArticulo.TabIndex = 3;
@@ -113,7 +113,7 @@
             // btnSalirEditarArticulo
             // 
             this.btnSalirEditarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalirEditarArticulo.Location = new System.Drawing.Point(1100, 372);
+            this.btnSalirEditarArticulo.Location = new System.Drawing.Point(1100, 383);
             this.btnSalirEditarArticulo.Name = "btnSalirEditarArticulo";
             this.btnSalirEditarArticulo.Size = new System.Drawing.Size(75, 25);
             this.btnSalirEditarArticulo.TabIndex = 4;
@@ -133,7 +133,7 @@
             // lblImagenEditar
             // 
             this.lblImagenEditar.AutoSize = true;
-            this.lblImagenEditar.Location = new System.Drawing.Point(57, 252);
+            this.lblImagenEditar.Location = new System.Drawing.Point(57, 245);
             this.lblImagenEditar.Name = "lblImagenEditar";
             this.lblImagenEditar.Size = new System.Drawing.Size(48, 13);
             this.lblImagenEditar.TabIndex = 2;
@@ -151,9 +151,9 @@
             // btnImagenArchivo
             // 
             this.btnImagenArchivo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImagenArchivo.Location = new System.Drawing.Point(337, 276);
+            this.btnImagenArchivo.Location = new System.Drawing.Point(319, 271);
             this.btnImagenArchivo.Name = "btnImagenArchivo";
-            this.btnImagenArchivo.Size = new System.Drawing.Size(53, 23);
+            this.btnImagenArchivo.Size = new System.Drawing.Size(71, 28);
             this.btnImagenArchivo.TabIndex = 7;
             this.btnImagenArchivo.Text = "Archiv&o";
             this.btnImagenArchivo.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@
             // 
             // txtImagenEditar
             // 
-            this.txtImagenEditar.Location = new System.Drawing.Point(111, 252);
+            this.txtImagenEditar.Location = new System.Drawing.Point(111, 245);
             this.txtImagenEditar.Name = "txtImagenEditar";
             this.txtImagenEditar.Size = new System.Drawing.Size(279, 20);
             this.txtImagenEditar.TabIndex = 6;
@@ -249,7 +249,7 @@
             // 
             // txtPrecioEditar
             // 
-            this.txtPrecioEditar.Location = new System.Drawing.Point(113, 211);
+            this.txtPrecioEditar.Location = new System.Drawing.Point(115, 207);
             this.txtPrecioEditar.Name = "txtPrecioEditar";
             this.txtPrecioEditar.Size = new System.Drawing.Size(275, 20);
             this.txtPrecioEditar.TabIndex = 5;
@@ -279,18 +279,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulosEditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulosEditar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulosEditar.Location = new System.Drawing.Point(647, 40);
+            this.dgvArticulosEditar.Location = new System.Drawing.Point(647, 39);
             this.dgvArticulosEditar.MultiSelect = false;
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
             this.dgvArticulosEditar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulosEditar.Size = new System.Drawing.Size(528, 314);
+            this.dgvArticulosEditar.Size = new System.Drawing.Size(528, 337);
             this.dgvArticulosEditar.TabIndex = 10;
             this.dgvArticulosEditar.SelectionChanged += new System.EventHandler(this.dgvArticulosEditar_SelectionChanged);
             // 
             // btLimpiar
             // 
             this.btLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btLimpiar.Location = new System.Drawing.Point(468, 189);
+            this.btLimpiar.Location = new System.Drawing.Point(467, 226);
             this.btLimpiar.Name = "btLimpiar";
             this.btLimpiar.Size = new System.Drawing.Size(119, 25);
             this.btLimpiar.TabIndex = 0;

@@ -54,7 +54,7 @@ namespace VistaArticulos
             //dgvArticulosEditar.Columns["Categoria_Art"].Visible = false;
             //dgvArticulosEditar.Columns["Marca_Art"].Visible = false;
             dgvArticulosEditar.Columns["ImagenUrl"].HeaderText = "Origen Imagen";
-            dgvArticulosEditar.Columns["Id"].Visible = false;          
+            dgvArticulosEditar.Columns["Id"].Visible = false;
             dgvArticulosEditar.Columns["Descripcion"].Visible = true;
             dgvArticulosEditar.Columns["IdMarca"].Visible = false;
             dgvArticulosEditar.Columns["IdCategoria"].Visible = false;
@@ -162,6 +162,17 @@ namespace VistaArticulos
                 articulo.Nombre = txtNombreEditar.Text;
                 articulo.Descripcion = txtDescripcionEditar.Text;
                 articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
+                /*
+                if (!validarNegativo(txtPrecioEditar.Text)) //devuelve true si tiene un char negativo
+                {
+                    articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
+                }
+                else
+                {
+                    MessageBox.Show("No puede ingresar numero negativo");
+                    
+                }
+                */
                 articulo.ImagenUrl = txtImagenEditar.Text;
                 articulo.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
                 articulo.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
@@ -196,6 +207,22 @@ namespace VistaArticulos
                     return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name=VERIFICA SI HAY SIMBOLO (-) en una cadena</param>
+        /// <returns></returns>
+        private bool validarNegativo(string cadena)
+        {
+
+            foreach (char caracter in cadena)
+            {
+                if ("-".Equals(caracter))
+                    return true;
+            }
+            return false;
         }
 
         private void LimpiarDatos()

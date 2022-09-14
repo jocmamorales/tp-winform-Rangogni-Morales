@@ -113,7 +113,7 @@
             // btnSalirEditarArticulo
             // 
             this.btnSalirEditarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalirEditarArticulo.Location = new System.Drawing.Point(959, 372);
+            this.btnSalirEditarArticulo.Location = new System.Drawing.Point(1100, 372);
             this.btnSalirEditarArticulo.Name = "btnSalirEditarArticulo";
             this.btnSalirEditarArticulo.Size = new System.Drawing.Size(75, 25);
             this.btnSalirEditarArticulo.TabIndex = 4;
@@ -280,7 +280,7 @@
             this.dgvArticulosEditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulosEditar.Location = new System.Drawing.Point(647, 40);
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
-            this.dgvArticulosEditar.Size = new System.Drawing.Size(387, 314);
+            this.dgvArticulosEditar.Size = new System.Drawing.Size(528, 314);
             this.dgvArticulosEditar.TabIndex = 10;
             this.dgvArticulosEditar.SelectionChanged += new System.EventHandler(this.dgvArticulosEditar_SelectionChanged);
             // 
@@ -299,7 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 420);
+            this.ClientSize = new System.Drawing.Size(1187, 420);
             this.Controls.Add(this.btLimpiar);
             this.Controls.Add(this.dgvArticulosEditar);
             this.Controls.Add(this.btnSalirEditarArticulo);

@@ -37,6 +37,7 @@ namespace VistaArticulos
         private void frmEditarArticulo_Load(object sender, EventArgs e)
         {
             cargarGrilla();
+            FormatoGrilla();
             if (articulo != null)
             {
                 txtCodigoEditar.Text = articulo.Codigo;
@@ -47,7 +48,22 @@ namespace VistaArticulos
             }
             FormatoCombos();
         }
+        private void FormatoGrilla()
+        {
 
+            //dgvArticulosEditar.Columns["Categoria_Art"].Visible = false;
+            //dgvArticulosEditar.Columns["Marca_Art"].Visible = false;
+            dgvArticulosEditar.Columns["ImagenUrl"].HeaderText = "Origen Imagen";
+            dgvArticulosEditar.Columns["Id"].Visible = false;          
+            dgvArticulosEditar.Columns["Descripcion"].Visible = true;
+            dgvArticulosEditar.Columns["IdMarca"].Visible = false;
+            dgvArticulosEditar.Columns["IdCategoria"].Visible = false;
+            dgvArticulosEditar.Columns["ImagenUrl"].Visible = true;
+            dgvArticulosEditar.Columns["Precio"].Visible = true;
+            dgvArticulosEditar.Columns["Codigo"].Visible = true;
+            dgvArticulosEditar.Columns["Nombre"].Visible = true;
+            //dgvArticulosEditar.Columns["Categoria"].DisplayIndex = 2;
+        }
         private void cargarGrilla()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
@@ -83,7 +99,7 @@ namespace VistaArticulos
             try
             {
                 DialogResult respuesta = MessageBox.Show("¿Estas seguro de eliminar este artículo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(respuesta== DialogResult.Yes)
+                if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionado.Id);
@@ -95,8 +111,8 @@ namespace VistaArticulos
 
                 MessageBox.Show(ex.ToString());
             }
-            
-            
+
+
 
         }
 
@@ -105,12 +121,12 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
-              
+
                 seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
                 seleccionado.Descripcion = txtDescripcionEditar.Text;
-               
+
                 seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
                 seleccionado.ImagenUrl = txtImagenEditar.Text;
                 seleccionado.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
@@ -153,9 +169,9 @@ namespace VistaArticulos
                 MessageBox.Show("Articulo agregado exitosamente");
                 cargarGrilla();
             }
-            catch(FormatException fex)
+            catch (FormatException fex)
             {
-                MessageBox.Show(fex.Message,"Precio mal ingresado"); 
+                MessageBox.Show(fex.Message, "Precio mal ingresado");
             }
             catch (Exception ex)
             {
@@ -173,7 +189,7 @@ namespace VistaArticulos
             return true;
         }
         private bool validarNumeros(string cadena)
-        {   
+        {
             foreach (char caracter in cadena)
             {
                 if (!(char.IsDigit(caracter)))
@@ -241,8 +257,8 @@ namespace VistaArticulos
         private void noGuardarImagenLocal(string x)
         {
             if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("HTTP")))
-                if(!File.Exists(ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName))
-                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                if (!File.Exists(ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
         }
         private void FormatoCombos()
         {

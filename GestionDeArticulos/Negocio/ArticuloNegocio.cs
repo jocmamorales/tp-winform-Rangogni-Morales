@@ -83,7 +83,19 @@ namespace Negocio
             {
                 NuevaConexion();
                 string sql = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio)values(" + nuevo.Codigo + ", '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', '" + nuevo.IdMarca + "', '" + nuevo.IdCategoria + "', '" + nuevo.ImagenUrl + "','" + nuevo.Precio + "')";
-                conexion.EjecutarQuery(sql);
+               
+                SqlCommand sql1 = new SqlCommand();
+                sql1.CommandText = sql;
+                sql1.CommandType = System.Data.CommandType.Text;
+                sql1.Parameters.AddWithValue("@Codigo", nuevo.Codigo);
+                sql1.Parameters.AddWithValue("@Nombre", nuevo.Nombre);
+                sql1.Parameters.AddWithValue("@Descripcion", nuevo.Descripcion);
+                sql1.Parameters.AddWithValue("@idMarca", nuevo.IdMarca);
+                sql1.Parameters.AddWithValue("@idCategoria", nuevo.IdCategoria);
+                sql1.Parameters.AddWithValue("@imagenUrl", nuevo.ImagenUrl);
+                sql1.Parameters.AddWithValue("@precio", nuevo.Precio);
+                sql1.Parameters.AddWithValue("@id", nuevo.Id);
+                conexion.EjecutarQueryCommand(sql1);
 
             }
             catch (Exception ex)

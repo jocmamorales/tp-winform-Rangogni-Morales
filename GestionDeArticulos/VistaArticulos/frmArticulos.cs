@@ -28,9 +28,7 @@ namespace VistaArticulos
         {
             try
             {
-                ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
-                articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
-                dgvArticulos.DataSource = articuloDTOs;
+                LlenarGrilla();
                 pbxArticulo.Load(articuloDTOs[0].ImagenUrl);
                 FormatoGrilla();
                 FormatoCombos();
@@ -39,6 +37,13 @@ namespace VistaArticulos
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void LlenarGrilla()
+        {
+            ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
+            articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
+            dgvArticulos.DataSource = articuloDTOs;
         }
         private void FormatoGrilla()
         {
@@ -131,15 +136,14 @@ namespace VistaArticulos
         {
             string sqlWhere = "";
             frmEditarArticulo editar = null;
-
             sqlWhere = WhereSqlFiltros();
-
             if (sqlWhere.Trim().Equals(""))
                 editar = new frmEditarArticulo();
             else
                 editar = new frmEditarArticulo(sqlWhere);
 
             editar.ShowDialog();
+            LlenarGrilla();
         }
 
         private string WhereSqlFiltros()
@@ -148,7 +152,7 @@ namespace VistaArticulos
             if (!txtFiltro.Text.Equals(""))
                 sqlWhere += " (codigo like '%" + txtFiltro.Text.Trim() + "&' OR nombre LIKE '%" + txtFiltro.Text + "%')";
             if (cmbCategoría.SelectedValue.ToString() != "0")
-                sqlWhere += sqlWhere.Length > 0 ? " AND IdCategoria = " + cmbCategoría.SelectedValue: " IdCategoria = " + cmbCategoría.SelectedValue;
+                sqlWhere += sqlWhere.Length > 0 ? " AND IdCategoria = " + cmbCategoría.SelectedValue : " IdCategoria = " + cmbCategoría.SelectedValue;
             if (cmbMarca.SelectedValue.ToString() != "0")
                 sqlWhere += sqlWhere.Length > 0 ? " AND IdMarca = " + cmbMarca.SelectedValue : " IdMarca = " + cmbMarca.SelectedValue;
             if (!sqlWhere.Trim().Equals(""))
@@ -159,40 +163,59 @@ namespace VistaArticulos
 
         private void cmbMarca_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            ComboMarcaGrilla();
+        }
+        private void ComboMarcaGrilla()
+        {
             List<ArticuloDTO> articulosGrilla = (List<ArticuloDTO>)dgvArticulos.DataSource;
-            List<ArticuloDTO> artsFiltrados = new List<ArticuloDTO>();
             if (cmbMarca.SelectedValue.ToString() != "0")
             {
-                artsFiltrados = articuloDTOs.FindAll(x => x.IdMarca.ToString().Contains(cmbMarca.SelectedValue.ToString()));
-                dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = artsFiltrados;
-                FormatoGrilla();
+                VistaMarcaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
+                if (cmbCategoría.SelectedValue.ToString() != "0")
+                    VistaCategoriaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
             }
             if (cmbMarca.SelectedValue.ToString() == "0")
             {
                 dgvArticulos.DataSource = null;
                 dgvArticulos.DataSource = articuloDTOs;
-                FormatoGrilla();
+                if (cmbCategoría.SelectedValue.ToString() != "0")
+                    VistaCategoriaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
             }
+            FormatoGrilla();
         }
-
+        private void VistaCategoriaGrilla(List<ArticuloDTO> artsGrilla)
+        {
+            List<ArticuloDTO> artsFiltrados = artsGrilla.FindAll(x => x.IdCategoria.ToString().Equals(cmbCategoría.SelectedValue.ToString()));
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = artsFiltrados;
+        }
+        private void VistaMarcaGrilla(List<ArticuloDTO> artsGrilla)
+        {
+            List<ArticuloDTO> artsFiltrados = artsGrilla.FindAll(x => x.IdMarca.ToString().Equals(cmbMarca.SelectedValue.ToString()));
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = artsFiltrados;
+        }
         private void cmbCategoría_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            ComboCategoriaGrilla();
+        }
+        private void ComboCategoriaGrilla()
+        {
             List<ArticuloDTO> articulosGrilla = (List<ArticuloDTO>)dgvArticulos.DataSource;
-            List<ArticuloDTO> artsFiltrados = new List<ArticuloDTO>();
             if (cmbCategoría.SelectedValue.ToString() != "0")
             {
-                artsFiltrados = articuloDTOs.FindAll(x => x.IdMarca.ToString().Contains(cmbCategoría.SelectedValue.ToString()));
-                dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = artsFiltrados;
-                FormatoGrilla();
+                VistaCategoriaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
+                if (cmbMarca.SelectedValue.ToString() != "0")
+                    VistaMarcaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
             }
             if (cmbCategoría.SelectedValue.ToString() == "0")
             {
                 dgvArticulos.DataSource = null;
                 dgvArticulos.DataSource = articuloDTOs;
-                FormatoGrilla();
+                if (cmbMarca.SelectedValue.ToString() != "0")
+                    VistaMarcaGrilla((List<ArticuloDTO>)dgvArticulos.DataSource);
             }
+            FormatoGrilla();
         }
     }
 }

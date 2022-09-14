@@ -56,7 +56,7 @@
             // btnNuevoArt
             // 
             this.btnNuevoArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnNuevoArt.Location = new System.Drawing.Point(462, 353);
+            this.btnNuevoArt.Location = new System.Drawing.Point(574, 353);
             this.btnNuevoArt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNuevoArt.Name = "btnNuevoArt";
             this.btnNuevoArt.Size = new System.Drawing.Size(122, 29);
@@ -97,7 +97,7 @@
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Items.AddRange(new object[] {
             "Todos"});
-            this.cmbMarca.Location = new System.Drawing.Point(251, 358);
+            this.cmbMarca.Location = new System.Drawing.Point(532, 25);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 20);
             this.cmbMarca.TabIndex = 7;
@@ -106,7 +106,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 361);
+            this.label1.Location = new System.Drawing.Point(491, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 8;
@@ -115,7 +115,7 @@
             // lblCategori
             // 
             this.lblCategori.AutoSize = true;
-            this.lblCategori.Location = new System.Drawing.Point(2, 361);
+            this.lblCategori.Location = new System.Drawing.Point(283, 28);
             this.lblCategori.Name = "lblCategori";
             this.lblCategori.Size = new System.Drawing.Size(53, 12);
             this.lblCategori.TabIndex = 10;
@@ -127,7 +127,7 @@
             this.cmbCategoría.FormattingEnabled = true;
             this.cmbCategoría.Items.AddRange(new object[] {
             "Todos"});
-            this.cmbCategoría.Location = new System.Drawing.Point(61, 358);
+            this.cmbCategoría.Location = new System.Drawing.Point(342, 25);
             this.cmbCategoría.Name = "cmbCategoría";
             this.cmbCategoría.Size = new System.Drawing.Size(121, 20);
             this.cmbCategoría.TabIndex = 9;
@@ -150,7 +150,9 @@
             this.Controls.Add(this.dgvArticulos);
             this.Font = new System.Drawing.Font("Britannic Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MaximizeBox = false;
             this.Name = "frmArticulos";
             this.Text = "Artículos";
             this.Load += new System.EventHandler(this.frmArticulos_Load);

@@ -38,9 +38,9 @@
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaModificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAcerca = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,14 +96,14 @@
             // 
             this.altaModificacionToolStripMenuItem.Name = "altaModificacionToolStripMenuItem";
             this.altaModificacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.altaModificacionToolStripMenuItem.Text = "Alta";
+            this.altaModificacionToolStripMenuItem.Text = "A&lta";
             this.altaModificacionToolStripMenuItem.Click += new System.EventHandler(this.altaModificacionToolStripMenuItem_Click);
             // 
             // modificacónToolStripMenuItem
             // 
             this.modificacónToolStripMenuItem.Name = "modificacónToolStripMenuItem";
             this.modificacónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificacónToolStripMenuItem.Text = "Modificacón";
+            this.modificacónToolStripMenuItem.Text = "M&odificacón";
             this.modificacónToolStripMenuItem.Click += new System.EventHandler(this.modificacónToolStripMenuItem_Click);
             // 
             // marcaToolStripMenuItem
@@ -120,23 +120,15 @@
             // 
             this.altaModificaciónToolStripMenuItem.Name = "altaModificaciónToolStripMenuItem";
             this.altaModificaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.altaModificaciónToolStripMenuItem.Text = "Alta";
+            this.altaModificaciónToolStripMenuItem.Text = "A&lta";
             this.altaModificaciónToolStripMenuItem.Click += new System.EventHandler(this.altaModificaciónToolStripMenuItem_Click);
             // 
             // modificaciónToolStripMenuItem
             // 
             this.modificaciónToolStripMenuItem.Name = "modificaciónToolStripMenuItem";
             this.modificaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificaciónToolStripMenuItem.Text = " Modificación";
+            this.modificaciónToolStripMenuItem.Text = " M&odificación";
             this.modificaciónToolStripMenuItem.Click += new System.EventHandler(this.modificaciónToolStripMenuItem_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.salirToolStripMenuItem.Text = "&Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -151,8 +143,16 @@
             // 
             this.tsmAcerca.Name = "tsmAcerca";
             this.tsmAcerca.Size = new System.Drawing.Size(297, 22);
-            this.tsmAcerca.Text = "Acerca de Sistema de Gestion de Articulos";
+            this.tsmAcerca.Text = "Acerca de Sistema de &Gestion de Articulos";
             this.tsmAcerca.Click += new System.EventHandler(this.tsmAcerca_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.salirToolStripMenuItem.Text = "&Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmGestion
             // 

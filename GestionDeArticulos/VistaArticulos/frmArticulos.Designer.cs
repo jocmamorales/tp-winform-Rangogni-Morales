@@ -87,7 +87,7 @@
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(68, 12);
             this.lblFiltro.TabIndex = 6;
-            this.lblFiltro.Text = "Filtro Rápido";
+            this.lblFiltro.Text = "&Filtro Rápido";
             // 
             // pbxArticulo
             // 
@@ -117,7 +117,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Marca";
+            this.label1.Text = "&Marca";
             // 
             // lblCategori
             // 
@@ -126,7 +126,7 @@
             this.lblCategori.Name = "lblCategori";
             this.lblCategori.Size = new System.Drawing.Size(53, 12);
             this.lblCategori.TabIndex = 7;
-            this.lblCategori.Text = "Categoría";
+            this.lblCategori.Text = "&Categoría";
             // 
             // cmbCategoría
             // 

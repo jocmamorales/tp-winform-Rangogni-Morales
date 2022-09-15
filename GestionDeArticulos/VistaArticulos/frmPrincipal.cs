@@ -32,13 +32,13 @@ namespace VistaArticulos
 
         private void altaModificacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAbGenerico frmAbm = new frmAbGenerico("Categoria");
+            frmAbGenerico frmAbm = new frmAbGenerico("Categoria","Alta");
             frmAbm.ShowDialog();
         }
 
         private void altaModificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAbGenerico frmAb = new frmAbGenerico("Marca");
+            frmAbGenerico frmAb = new frmAbGenerico("Marca", "alta");
             frmAb.ShowDialog();
         }
 

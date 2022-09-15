@@ -9,13 +9,15 @@ namespace VistaArticulos
 {
     public partial class frmAbGenerico : Form
     {
+        private string _am;
         private string _tipo;
         private List<Categoria> categorias = null;
         private List<Marca> marcas = null;
-        public frmAbGenerico(string tipo)
+        public frmAbGenerico(string tipo, string am)
         {
             InitializeComponent();
             _tipo = tipo;
+            _am = am;
         }
 
         private void frmAbmGenerico_Load(object sender, EventArgs e)
@@ -24,6 +26,11 @@ namespace VistaArticulos
                 CargarCategoria();
             if (_tipo == "Marca")
                 CargarMarca();
+            if (_am.Equals("Alta"))
+                btnMod.Visible = !btnAlta.Visible;
+            else
+                btnAlta.Visible = !btnMod.Visible;
+
         }
 
         private void CargarCategoria()

@@ -74,7 +74,6 @@
             this.pbxArtEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArtEditar.TabIndex = 4;
             this.pbxArtEditar.TabStop = false;
-            this.pbxArtEditar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblEditarArticulo
             // 
@@ -287,18 +286,6 @@
             // 
             // dgvArticulosEditar
             // 
-            this.dgvArticulosEditar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvArticulosEditar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvArticulosEditar.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britannic Bold", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulosEditar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvArticulosEditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -313,15 +300,6 @@
             this.dgvArticulosEditar.Location = new System.Drawing.Point(715, 49);
             this.dgvArticulosEditar.MultiSelect = false;
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Broadway", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulosEditar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvArticulosEditar.RowHeadersVisible = false;
             this.dgvArticulosEditar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulosEditar.Size = new System.Drawing.Size(460, 307);
             this.dgvArticulosEditar.TabIndex = 5;

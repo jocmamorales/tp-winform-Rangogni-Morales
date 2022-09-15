@@ -20,23 +20,20 @@ namespace VistaArticulos
         private Articulo articulo = null;
         private OpenFileDialog archivo = null;
         private string filtro = string.Empty;
-
         private List<Categoria> categorias;
         private List<Marca> marcas;
+
         public frmEditarArticulo()
         {
             InitializeComponent();
         }
+
         public frmEditarArticulo(string filtro)
         {
             InitializeComponent();
             this.filtro = filtro;
         }
-        public frmEditarArticulo(Articulo articulo)
-        {
-            InitializeComponent();
-            this.articulo = articulo;
-        }
+
         private void frmEditarArticulo_Load(object sender, EventArgs e)
         {
             FormatoCombos();
@@ -49,10 +46,7 @@ namespace VistaArticulos
                 txtDescripcionEditar.Text = articulo.Descripcion;
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;
-
-
             }
-
         }
 
         private void CargarCombos(string idCat, string idMar)
@@ -64,26 +58,29 @@ namespace VistaArticulos
                 if (!(idCat.Equals("0") || idCat.Equals("")))
                 {
                     categoriaSeleccionada = categorias.Find(x => x.Id.ToString().Equals(idCat));
-                    cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
+                    if (categoriaSeleccionada != null)
+                        cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
                 }
+                if (idCat.Equals("0"))
+                    cboCategoriaEditar.Text = "";
                 if (!(idMar.Equals("0") || idMar.Equals("")))
                 {
                     marcaSeleccionada = marcas.Find(x => x.Id.ToString().Equals(idMar));
-                    cboMarcaEditar.Text = marcaSeleccionada.Descripcion;
+                    if (marcaSeleccionada != null)
+                        cboMarcaEditar.Text = marcaSeleccionada.Descripcion;
                 }
+                if (idMar.Equals("0"))
+                    cboMarcaEditar.Text = "";
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-
-
         }
 
         private void FormatoGrilla()
         {
-
             dgvArticulosEditar.Columns["ImagenUrl"].HeaderText = "Origen Imagen";
             dgvArticulosEditar.Columns["Id"].Visible = false;
             dgvArticulosEditar.Columns["Descripcion"].Visible = true;
@@ -93,8 +90,8 @@ namespace VistaArticulos
             dgvArticulosEditar.Columns["Precio"].Visible = true;
             dgvArticulosEditar.Columns["Codigo"].Visible = true;
             dgvArticulosEditar.Columns["Nombre"].Visible = true;
-
         }
+
         private void cargarGrilla()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
@@ -103,10 +100,12 @@ namespace VistaArticulos
             else
                 dgvArticulosEditar.DataSource = articuloNegocio.ListarArticulos(filtro);
         }
+
         private void txtImagenEditar_TextChanged(object sender, EventArgs e)
         {
             cargarImagen(txtImagenEditar.Text);
         }
+
         private void cargarImagen(string imagen)
         {
             try
@@ -117,10 +116,6 @@ namespace VistaArticulos
             {
                 pbxArtEditar.Load("https://us.123rf.com/450wm/momoforsale/momoforsale2105/momoforsale210500063/169348832-no-hay-se%C3%B1al-disponible-de-imagen-aislada-en-la-ilustraci%C3%B3n-de-vector-de-fondo-blanco-.jpg?ver=6");
             }
-        }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
@@ -139,12 +134,8 @@ namespace VistaArticulos
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
-
-
-
         }
 
         private void btnModificarArticulo_Click(object sender, EventArgs e)
@@ -152,7 +143,6 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
-
                 seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
@@ -182,11 +172,8 @@ namespace VistaArticulos
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
-
-
         }
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
@@ -223,6 +210,7 @@ namespace VistaArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
+
         private bool validarEditar()
         {
             if (!(validarNumeros(txtPrecioEditar.Text)))
@@ -232,6 +220,7 @@ namespace VistaArticulos
             }
             return true;
         }
+
         private bool validarNumeros(string cadena)
         {
             foreach (char caracter in cadena)
@@ -245,13 +234,9 @@ namespace VistaArticulos
         private bool validarPositivo(decimal numero)
         {
             if (numero >= 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
         private void LimpiarDatos()
@@ -267,7 +252,6 @@ namespace VistaArticulos
 
         private void dgvArticulosEditar_SelectionChanged(object sender, EventArgs e)
         {
-
             Articulo artSel = null;
             if (dgvArticulosEditar.SelectedRows.Count > 0)
             {
@@ -301,15 +285,16 @@ namespace VistaArticulos
             {
                 txtImagenEditar.Text = archivo.FileName;
                 cargarImagen(archivo.FileName);
-
             }
         }
+
         private void noGuardarImagenLocal(string x)
         {
             if (archivo != null && !(txtImagenEditar.Text.ToUpper().Contains("HTTP")))
                 if (!File.Exists(ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName))
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
         }
+
         private void FormatoCombos()
         {
             categorias = new List<Categoria>();

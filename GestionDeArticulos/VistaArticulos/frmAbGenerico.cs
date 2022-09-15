@@ -30,6 +30,7 @@ namespace VistaArticulos
                 btnMod.Visible = !btnAlta.Visible;
             else
                 btnAlta.Visible = !btnMod.Visible;
+            grbABM.Text += " " + _tipo;
 
         }
 
@@ -70,7 +71,7 @@ namespace VistaArticulos
         {
             if (txtDescrip.Text.Trim().Equals(""))
             {
-                MensajeSinDatos();
+                MensajeTextboxSinDatos();
                 return;
             }
             if (!txtDescrip.Text.Trim().Equals(""))
@@ -80,9 +81,13 @@ namespace VistaArticulos
                     EjecutarAlta();
             }
         }
-        private void MensajeSinDatos()
+        private void MensajeTextboxSinDatos()
         {
             MessageBox.Show("Descripcion sin datos", "Sin descripción", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void MensajeSinSeleccionGrilla()
+        {
+            MessageBox.Show("No selecciono la descipción en la grilla", "Sin selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void EjecutarAlta()
@@ -128,44 +133,66 @@ namespace VistaArticulos
 
         private void btnMod_Click(object sender, EventArgs e)
         {
-            if (txtDescrip.Text.Trim().Equals(""))
+            if (txtDescrip.Text.Trim().Equals("") )
             {
-                MensajeSinDatos();
+                MensajeTextboxSinDatos();
+                return;
+            }
+            if ( dgvABM.CurrentRow == null)
+            {
+                MensajeSinSeleccionGrilla();
                 return;
             }
             if (dgvABM.Rows.Count > 0 && _tipo.Equals("Categoria"))
-            {
                 ModificarCategoria();
-            }
             if (dgvABM.Rows.Count > 0 && _tipo.Equals("Marca"))
-            {
                 ModificarMarca();
-            }
         }
 
         private void ModificarCategoria()
         {
-            Categoria categoria = (Categoria)dgvABM.CurrentRow.DataBoundItem;
-            categoria.Descripcion = txtDescrip.Text.Trim();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            if (categoriaNegocio.Modifica(categoria))
+            try
             {
-                txtDescrip.Text = string.Empty;
-                MessageBox.Show("Modificación categoría correcta", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarCategoria();
+                Categoria categoria = (Categoria)dgvABM.CurrentRow.DataBoundItem;
+                categoria.Descripcion = txtDescrip.Text.Trim();
+                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                if (categoriaNegocio.Modifica(categoria))
+                {
+                    txtDescrip.Text = string.Empty;
+                    MessageBox.Show("Modificación categoría correcta", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarCategoria();
+                }
             }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
         private void ModificarMarca()
         {
-            Marca marca = (Marca)dgvABM.CurrentRow.DataBoundItem;
-            marca.Descripcion = txtDescrip.Text.Trim();
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            if (marcaNegocio.Modifica(marca))
+            try
             {
-                txtDescrip.Text = string.Empty;
-                MessageBox.Show("Modificación categoría correcta", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarMarca();
+                Marca marca = (Marca)dgvABM.CurrentRow.DataBoundItem;
+                marca.Descripcion = txtDescrip.Text.Trim();
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                if (marcaNegocio.Modifica(marca))
+                {
+                    txtDescrip.Text = string.Empty;
+                    MessageBox.Show("Modificación categoría correcta", "Modificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarMarca();
+                }
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

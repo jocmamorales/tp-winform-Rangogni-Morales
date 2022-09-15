@@ -134,9 +134,8 @@ namespace VistaArticulos
 
         private void btnNuevoArt_Click(object sender, EventArgs e)
         {
-            string sqlWhere = "";
             frmEditarArticulo editar = null;
-            sqlWhere = WhereSqlFiltros();
+            string sqlWhere = WhereSqlFiltros();
             if (sqlWhere.Trim().Equals(""))
                 editar = new frmEditarArticulo();
             else

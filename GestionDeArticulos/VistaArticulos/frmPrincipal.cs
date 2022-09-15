@@ -38,7 +38,7 @@ namespace VistaArticulos
 
         private void altaModificaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAbGenerico frmAb = new frmAbGenerico("Marca", "alta");
+            frmAbGenerico frmAb = new frmAbGenerico("Marca", "Alta");
             frmAb.ShowDialog();
         }
 
@@ -52,6 +52,18 @@ namespace VistaArticulos
         {            
             frmEditarArticulo editar =  new frmEditarArticulo();
             editar.ShowDialog();
+        }
+
+        private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbGenerico frmAb = new frmAbGenerico("Marca", "Modificacion");
+            frmAb.ShowDialog();
+        }
+
+        private void modificacónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbGenerico frmAbm = new frmAbGenerico("Categoria", "Modificaion");
+            frmAbm.ShowDialog();
         }
     }
 }

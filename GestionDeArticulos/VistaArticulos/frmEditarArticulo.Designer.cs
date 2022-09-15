@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarArticulo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbxArtEditar = new System.Windows.Forms.PictureBox();
             this.lblEditarArticulo = new System.Windows.Forms.Label();
             this.btnModificarArticulo = new System.Windows.Forms.Button();
@@ -85,6 +84,7 @@
             // 
             // btnModificarArticulo
             // 
+            this.btnModificarArticulo.BackColor = System.Drawing.Color.Lavender;
             this.btnModificarArticulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnModificarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarArticulo.Image")));
             this.btnModificarArticulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -93,12 +93,12 @@
             this.btnModificarArticulo.Size = new System.Drawing.Size(289, 36);
             this.btnModificarArticulo.TabIndex = 1;
             this.btnModificarArticulo.Text = "&Modificar";
-            this.btnModificarArticulo.UseVisualStyleBackColor = true;
+            this.btnModificarArticulo.UseVisualStyleBackColor = false;
             this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnAgregarArticulo
             // 
-            this.btnAgregarArticulo.BackColor = System.Drawing.Color.LightGray;
+            this.btnAgregarArticulo.BackColor = System.Drawing.Color.Lavender;
             this.btnAgregarArticulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAgregarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarArticulo.Image")));
@@ -153,6 +153,7 @@
             // 
             // btnImagenArchivo
             // 
+            this.btnImagenArchivo.BackColor = System.Drawing.Color.Lavender;
             this.btnImagenArchivo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImagenArchivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnImagenArchivo.Image = ((System.Drawing.Image)(resources.GetObject("btnImagenArchivo.Image")));
@@ -162,7 +163,7 @@
             this.btnImagenArchivo.Size = new System.Drawing.Size(103, 28);
             this.btnImagenArchivo.TabIndex = 7;
             this.btnImagenArchivo.Text = "Archiv&o";
-            this.btnImagenArchivo.UseVisualStyleBackColor = true;
+            this.btnImagenArchivo.UseVisualStyleBackColor = false;
             this.btnImagenArchivo.Click += new System.EventHandler(this.btnImagenArchivo_Click);
             // 
             // txtImagenEditar
@@ -292,14 +293,6 @@
             this.dgvArticulosEditar.Location = new System.Drawing.Point(715, 49);
             this.dgvArticulosEditar.MultiSelect = false;
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britannic Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulosEditar.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvArticulosEditar.RowHeadersVisible = false;
             this.dgvArticulosEditar.RowHeadersWidth = 20;
             this.dgvArticulosEditar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -311,6 +304,7 @@
             // 
             // btLimpiar
             // 
+            this.btLimpiar.BackColor = System.Drawing.Color.Lavender;
             this.btLimpiar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btLimpiar.Image")));
             this.btLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,7 +313,7 @@
             this.btLimpiar.Size = new System.Drawing.Size(289, 36);
             this.btLimpiar.TabIndex = 0;
             this.btLimpiar.Text = "&Limpiar Detalles";
-            this.btLimpiar.UseVisualStyleBackColor = true;
+            this.btLimpiar.UseVisualStyleBackColor = false;
             this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
             // 
             // panel1
@@ -337,6 +331,7 @@
             // 
             // btnEliminarArticulo
             // 
+            this.btnEliminarArticulo.BackColor = System.Drawing.Color.Lavender;
             this.btnEliminarArticulo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnEliminarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarArticulo.Image")));
             this.btnEliminarArticulo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,7 +340,7 @@
             this.btnEliminarArticulo.Size = new System.Drawing.Size(289, 36);
             this.btnEliminarArticulo.TabIndex = 3;
             this.btnEliminarArticulo.Text = "&Eliminar";
-            this.btnEliminarArticulo.UseVisualStyleBackColor = true;
+            this.btnEliminarArticulo.UseVisualStyleBackColor = false;
             this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
             // 
             // txtId

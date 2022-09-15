@@ -59,11 +59,25 @@ namespace VistaArticulos
         {
             Categoria categoriaSeleccionada = null;
             Marca marcaSeleccionada = null;
+            try
+            {
+                if (!(idCat.Equals("0")||idCat.Equals("")))
+                {
+                    categoriaSeleccionada = categorias.Find(x => x.Id.ToString().Equals(idCat));
+                    cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
+                }
+                if (!(idMar.Equals("0") || idMar.Equals("")))
+                {
+                    marcaSeleccionada = marcas.Find(x => x.Id.ToString().Equals(idMar));
+                    cboMarcaEditar.Text = marcaSeleccionada.Descripcion;
+                }
+            }
+            catch (Exception ex)
+            {
 
-            categoriaSeleccionada = categorias.Find(x => x.Id.ToString().Equals(idCat));
-            cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
-            marcaSeleccionada = marcas.Find(x => x.Id.ToString().Equals(idMar));
-            cboMarcaEditar.Text = marcaSeleccionada.Descripcion;
+                MessageBox.Show(ex.ToString());
+            }
+
 
         }
 

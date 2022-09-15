@@ -65,5 +65,10 @@ namespace VistaArticulos
             frmAbGenerico frmAbm = new frmAbGenerico("Categoria", "Modificaion");
             frmAbm.ShowDialog();
         }
+
+        private void tsmAcerca_Click(object sender, EventArgs e)
+        {
+           MessageBox.Show("Item management system 2022 (Version Berta 1.0) ©2022 UTN FRGP Rangogni Roberto - Morales Jose  ", "Acerca Sistema de Gestion de Artículos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

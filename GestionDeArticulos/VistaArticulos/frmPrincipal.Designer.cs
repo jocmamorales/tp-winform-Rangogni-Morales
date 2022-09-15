@@ -39,6 +39,8 @@
             this.altaModificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAcerca = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,7 @@
             this.articulosToolStripMenuItem,
             this.categoriaToolStripMenuItem,
             this.marcaToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -68,14 +71,14 @@
             // listadoToolStripMenuItem
             // 
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
-            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.listadoToolStripMenuItem.Text = "&Buscar";
             this.listadoToolStripMenuItem.Click += new System.EventHandler(this.listadoToolStripMenuItem_Click);
             // 
             // ediciónToolStripMenuItem
             // 
             this.ediciónToolStripMenuItem.Name = "ediciónToolStripMenuItem";
-            this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ediciónToolStripMenuItem.Text = "&Editar";
             this.ediciónToolStripMenuItem.Click += new System.EventHandler(this.ediciónToolStripMenuItem_Click);
             // 
@@ -135,10 +138,27 @@
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAcerca});
+            this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Britannic Bold", 9F);
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.ayudaToolStripMenuItem.Text = "A&yuda";
+            // 
+            // tsmAcerca
+            // 
+            this.tsmAcerca.Name = "tsmAcerca";
+            this.tsmAcerca.Size = new System.Drawing.Size(297, 22);
+            this.tsmAcerca.Text = "Acerca de Sistema de Gestion de Articulos";
+            this.tsmAcerca.Click += new System.EventHandler(this.tsmAcerca_Click);
+            // 
             // frmGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(449, 30);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Britannic Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,7 +167,7 @@
             this.MaximizeBox = false;
             this.Name = "frmGestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Sistema de Gestíon de Comercio";
+            this.Text = "Sistema de Gestíon de Artículos";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -168,6 +188,8 @@
         private System.Windows.Forms.ToolStripMenuItem ediciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificacónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAcerca;
     }
 }
 

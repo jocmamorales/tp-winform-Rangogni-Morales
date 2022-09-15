@@ -54,6 +54,7 @@
             this.btLimpiar = new System.Windows.Forms.Button();
             this.txtIdEditar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArtEditar)).BeginInit();
             this.gbxDatosArticulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).BeginInit();
@@ -234,7 +235,7 @@
             // 
             // gbxDatosArticulo
             // 
-            this.gbxDatosArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.gbxDatosArticulo.BackColor = System.Drawing.Color.White;
             this.gbxDatosArticulo.Controls.Add(this.txtPrecioEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblPrecioEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblCategoriaEditar);
@@ -251,7 +252,7 @@
             this.gbxDatosArticulo.Controls.Add(this.lblImagenEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblDescripcionEditar);
             this.gbxDatosArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDatosArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gbxDatosArticulo.ForeColor = System.Drawing.Color.BlueViolet;
             this.gbxDatosArticulo.Location = new System.Drawing.Point(12, 49);
             this.gbxDatosArticulo.Name = "gbxDatosArticulo";
             this.gbxDatosArticulo.Size = new System.Drawing.Size(390, 307);
@@ -327,11 +328,20 @@
             this.panel1.Size = new System.Drawing.Size(289, 417);
             this.panel1.TabIndex = 12;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(13, 363);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(25, 20);
+            this.txtId.TabIndex = 13;
+            this.txtId.Visible = false;
+            // 
             // frmEditarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 420);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtIdEditar);
             this.Controls.Add(this.dgvArticulosEditar);
@@ -339,7 +349,8 @@
             this.Controls.Add(this.lblEditarArticulo);
             this.Controls.Add(this.gbxDatosArticulo);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimumSize = new System.Drawing.Size(1062, 459);
+            this.MaximumSize = new System.Drawing.Size(1203, 459);
+            this.MinimumSize = new System.Drawing.Size(1203, 459);
             this.Name = "frmEditarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edición";
@@ -381,5 +392,6 @@
         private System.Windows.Forms.Button btLimpiar;
         private System.Windows.Forms.TextBox txtIdEditar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

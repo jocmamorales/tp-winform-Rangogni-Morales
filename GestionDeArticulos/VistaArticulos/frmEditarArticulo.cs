@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Dominio;
 using System.IO;
 using System.Configuration;
+using Negocio.ModeloDTO;
 
 namespace VistaArticulos
 {
@@ -20,6 +21,8 @@ namespace VistaArticulos
         private OpenFileDialog archivo = null;
         private string filtro = string.Empty;
 
+        private List<Categoria> categorias;
+        private List<Marca> marcas;
         public frmEditarArticulo()
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace VistaArticulos
         }
         private void frmEditarArticulo_Load(object sender, EventArgs e)
         {
+            FormatoCombos();
             cargarGrilla();
             FormatoGrilla();
             if (articulo != null)
@@ -46,9 +50,23 @@ namespace VistaArticulos
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;
 
+
             }
-            FormatoCombos();
+
         }
+
+        private void CargarCombos(string idCat, string idMar)
+        {
+            Categoria categoriaSeleccionada = null;
+            Marca marcaSeleccionada = null;
+
+            categoriaSeleccionada = categorias.Find(x => x.Id.ToString().Equals(idCat));
+            cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
+            marcaSeleccionada = marcas.Find(x => x.Id.ToString().Equals(idMar));
+            cboMarcaEditar.Text = marcaSeleccionada.Descripcion;
+
+        }
+
         private void FormatoGrilla()
         {
 
@@ -57,7 +75,7 @@ namespace VistaArticulos
             dgvArticulosEditar.Columns["Descripcion"].Visible = true;
             dgvArticulosEditar.Columns["IdMarca"].Visible = false;
             dgvArticulosEditar.Columns["IdCategoria"].Visible = false;
-            dgvArticulosEditar.Columns["ImagenUrl"].Visible = true;
+            dgvArticulosEditar.Columns["ImagenUrl"].Visible = false;
             dgvArticulosEditar.Columns["Precio"].Visible = true;
             dgvArticulosEditar.Columns["Codigo"].Visible = true;
             dgvArticulosEditar.Columns["Nombre"].Visible = true;
@@ -250,9 +268,11 @@ namespace VistaArticulos
                 txtNombreEditar.Text = artSel.Nombre;
                 txtPrecioEditar.Text = artSel.Precio.ToString();
                 txtImagenEditar.Text = artSel.ImagenUrl;
-                cboCategoriaEditar.Text = artSel.IdCategoria.ToString();
-                cboMarcaEditar.Text = artSel.IdMarca.ToString();
+                CargarCombos(artSel.IdCategoria.ToString(), artSel.IdMarca.ToString());
 
+
+
+                txtId.Text = artSel.Id.ToString();
             }
 
         }
@@ -286,8 +306,8 @@ namespace VistaArticulos
         }
         private void FormatoCombos()
         {
-            List<Categoria> categorias = new List<Categoria>();
-            List<Marca> marcas = new List<Marca>();
+            categorias = new List<Categoria>();
+            marcas = new List<Marca>();
 
             try
             {

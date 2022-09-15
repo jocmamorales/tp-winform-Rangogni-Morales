@@ -300,6 +300,7 @@
             this.dgvArticulosEditar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulosEditar.Size = new System.Drawing.Size(460, 307);
             this.dgvArticulosEditar.TabIndex = 5;
+            this.dgvArticulosEditar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvArticulosEditar_CellMouseClick);
             this.dgvArticulosEditar.SelectionChanged += new System.EventHandler(this.dgvArticulosEditar_SelectionChanged);
             // 
             // btLimpiar

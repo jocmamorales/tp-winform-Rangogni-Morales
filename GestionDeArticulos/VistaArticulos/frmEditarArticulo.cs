@@ -334,5 +334,12 @@ namespace VistaArticulos
                 throw ex;
             }
         }
+
+        private void dgvArticulosEditar_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvArticulosEditar.CurrentRow != null)
+                dgvArticulosEditar_SelectionChanged(sender, e);
+        }
+
     }
 }

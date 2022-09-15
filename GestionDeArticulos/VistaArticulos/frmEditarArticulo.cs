@@ -47,6 +47,7 @@ namespace VistaArticulos
                 txtPrecioEditar.Text = articulo.Precio.ToString();
                 txtImagenEditar.Text = articulo.ImagenUrl;
             }
+            LimpiarDatos();
         }
 
         private void CargarCombos(string idCat, string idMar)
@@ -143,6 +144,8 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
+                if (dgvArticulosEditar.CurrentRow == null)
+                    return;
                 seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
                 seleccionado.Codigo = txtCodigoEditar.Text;
                 seleccionado.Nombre = txtNombreEditar.Text;
@@ -206,7 +209,6 @@ namespace VistaArticulos
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -264,7 +266,6 @@ namespace VistaArticulos
                 CargarCombos(artSel.IdCategoria == null ? "" : artSel.IdCategoria.ToString(), artSel.IdMarca == null ? "" : artSel.IdMarca.ToString());
                 txtId.Text = artSel.Id.ToString();
             }
-
         }
 
         private void btnSalirEditarArticulo_Click(object sender, EventArgs e)

@@ -61,7 +61,7 @@ namespace VistaArticulos
             Marca marcaSeleccionada = null;
             try
             {
-                if (!(idCat.Equals("0")||idCat.Equals("")))
+                if (!(idCat.Equals("0") || idCat.Equals("")))
                 {
                     categoriaSeleccionada = categorias.Find(x => x.Id.ToString().Equals(idCat));
                     cboCategoriaEditar.Text = categoriaSeleccionada.Descripcion;
@@ -265,11 +265,6 @@ namespace VistaArticulos
             cboMarcaEditar.SelectedItem = cboMarcaEditar.Items[0];
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvArticulosEditar_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -282,10 +277,7 @@ namespace VistaArticulos
                 txtNombreEditar.Text = artSel.Nombre;
                 txtPrecioEditar.Text = artSel.Precio.ToString();
                 txtImagenEditar.Text = artSel.ImagenUrl;
-                CargarCombos(artSel.IdCategoria.ToString(), artSel.IdMarca.ToString());
-
-
-
+                CargarCombos(artSel.IdCategoria == null ? "" : artSel.IdCategoria.ToString(), artSel.IdMarca == null ? "" : artSel.IdMarca.ToString());
                 txtId.Text = artSel.Id.ToString();
             }
 

@@ -144,30 +144,33 @@ namespace VistaArticulos
             Articulo seleccionado = new Articulo();
             try
             {
-                if (dgvArticulosEditar.CurrentRow == null)
-                    return;
-                seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
-                seleccionado.Codigo = txtCodigoEditar.Text;
-                seleccionado.Nombre = txtNombreEditar.Text;
-                seleccionado.Descripcion = txtDescripcionEditar.Text;
-                if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de modificar este artículo?", "Modificando un artículo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
                 {
-                    seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
-                }
-                else
-                {
-                    throw new FormatException();
-                }
-                seleccionado.ImagenUrl = txtImagenEditar.Text;
-                seleccionado.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
-                seleccionado.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
+                    if (dgvArticulosEditar.CurrentRow == null)
+                        return;
+                    seleccionado = (Articulo)dgvArticulosEditar.CurrentRow.DataBoundItem;
+                    seleccionado.Codigo = txtCodigoEditar.Text;
+                    seleccionado.Nombre = txtNombreEditar.Text;
+                    seleccionado.Descripcion = txtDescripcionEditar.Text;
+                    if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
+                    {
+                        seleccionado.Precio = decimal.Parse(txtPrecioEditar.Text);
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
+                    seleccionado.ImagenUrl = txtImagenEditar.Text;
+                    seleccionado.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
+                    seleccionado.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
 
-                ArticuloNegocio aux = new ArticuloNegocio();
-                aux.modificar(seleccionado);
-                noGuardarImagenLocal(txtImagenEditar.Text);
-                MessageBox.Show("Articulo modificado exitosamente");
-                cargarGrilla();
-
+                    ArticuloNegocio aux = new ArticuloNegocio();
+                    aux.modificar(seleccionado);
+                    noGuardarImagenLocal(txtImagenEditar.Text);
+                    MessageBox.Show("Articulo modificado exitosamente");
+                    cargarGrilla();
+                }
             }
             catch (FormatException fex)
             {
@@ -185,23 +188,28 @@ namespace VistaArticulos
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                articulo.Codigo = txtCodigoEditar.Text;
-                articulo.Nombre = txtNombreEditar.Text;
-                articulo.Descripcion = txtDescripcionEditar.Text;
-                if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
+                DialogResult respuesta = MessageBox.Show("¿Estas seguro de agregar este artículo?", "Agregando un nuevo artículo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
                 {
-                    articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
+                    articulo.Codigo = txtCodigoEditar.Text;
+                    articulo.Nombre = txtNombreEditar.Text;
+                    articulo.Descripcion = txtDescripcionEditar.Text;
+                    if (validarPositivo(decimal.Parse(txtPrecioEditar.Text)))
+                    {
+                        articulo.Precio = decimal.Parse(txtPrecioEditar.Text);
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
+                    articulo.ImagenUrl = txtImagenEditar.Text;
+                    articulo.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
+                    articulo.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
+
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Articulo agregado exitosamente");
+                    cargarGrilla();
                 }
-                else
-                {
-                    throw new FormatException();
-                }
-                articulo.ImagenUrl = txtImagenEditar.Text;
-                articulo.IdMarca = int.Parse(cboMarcaEditar.SelectedValue.ToString());
-                articulo.IdCategoria = int.Parse(cboCategoriaEditar.SelectedValue.ToString());
-                negocio.agregar(articulo);
-                MessageBox.Show("Articulo agregado exitosamente");
-                cargarGrilla();
             }
             catch (FormatException fex)
             {

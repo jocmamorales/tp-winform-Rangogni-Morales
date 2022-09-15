@@ -52,16 +52,20 @@
             this.lblCategoriaEditar = new System.Windows.Forms.Label();
             this.dgvArticulosEditar = new System.Windows.Forms.DataGridView();
             this.btLimpiar = new System.Windows.Forms.Button();
+            this.txtIdEditar = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArtEditar)).BeginInit();
             this.gbxDatosArticulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbxArtEditar
             // 
-            this.pbxArtEditar.Location = new System.Drawing.Point(417, 39);
+            this.pbxArtEditar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxArtEditar.Location = new System.Drawing.Point(0, 108);
             this.pbxArtEditar.Name = "pbxArtEditar";
-            this.pbxArtEditar.Size = new System.Drawing.Size(212, 181);
+            this.pbxArtEditar.Size = new System.Drawing.Size(289, 273);
             this.pbxArtEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArtEditar.TabIndex = 4;
             this.pbxArtEditar.TabStop = false;
@@ -70,19 +74,19 @@
             // lblEditarArticulo
             // 
             this.lblEditarArticulo.AutoSize = true;
-            this.lblEditarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarArticulo.Location = new System.Drawing.Point(12, 10);
+            this.lblEditarArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditarArticulo.Location = new System.Drawing.Point(123, 18);
             this.lblEditarArticulo.Name = "lblEditarArticulo";
-            this.lblEditarArticulo.Size = new System.Drawing.Size(123, 20);
+            this.lblEditarArticulo.Size = new System.Drawing.Size(181, 24);
             this.lblEditarArticulo.TabIndex = 5;
-            this.lblEditarArticulo.Text = "Editar Artículo";
+            this.lblEditarArticulo.Text = "Detalle de Artículo";
             // 
             // btnModificarArticulo
             // 
-            this.btnModificarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnModificarArticulo.Location = new System.Drawing.Point(467, 316);
+            this.btnModificarArticulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnModificarArticulo.Location = new System.Drawing.Point(0, 72);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
-            this.btnModificarArticulo.Size = new System.Drawing.Size(119, 26);
+            this.btnModificarArticulo.Size = new System.Drawing.Size(289, 36);
             this.btnModificarArticulo.TabIndex = 2;
             this.btnModificarArticulo.Text = "&Modificar";
             this.btnModificarArticulo.UseVisualStyleBackColor = true;
@@ -90,21 +94,23 @@
             // 
             // btnAgregarArticulo
             // 
-            this.btnAgregarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(467, 270);
+            this.btnAgregarArticulo.BackColor = System.Drawing.Color.LightGray;
+            this.btnAgregarArticulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAgregarArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(0, 36);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
-            this.btnAgregarArticulo.Size = new System.Drawing.Size(119, 26);
+            this.btnAgregarArticulo.Size = new System.Drawing.Size(289, 36);
             this.btnAgregarArticulo.TabIndex = 1;
             this.btnAgregarArticulo.Text = "&Agregar";
-            this.btnAgregarArticulo.UseVisualStyleBackColor = true;
+            this.btnAgregarArticulo.UseVisualStyleBackColor = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // btnEliminarArticulo
             // 
-            this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(467, 358);
+            this.btnEliminarArticulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(0, 0);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
-            this.btnEliminarArticulo.Size = new System.Drawing.Size(119, 26);
+            this.btnEliminarArticulo.Size = new System.Drawing.Size(289, 36);
             this.btnEliminarArticulo.TabIndex = 3;
             this.btnEliminarArticulo.Text = "&Eliminar";
             this.btnEliminarArticulo.UseVisualStyleBackColor = true;
@@ -151,6 +157,7 @@
             // btnImagenArchivo
             // 
             this.btnImagenArchivo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagenArchivo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnImagenArchivo.Location = new System.Drawing.Point(319, 271);
             this.btnImagenArchivo.Name = "btnImagenArchivo";
             this.btnImagenArchivo.Size = new System.Drawing.Size(71, 28);
@@ -184,6 +191,7 @@
             // lbl1Codigo
             // 
             this.lbl1Codigo.AutoSize = true;
+            this.lbl1Codigo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl1Codigo.Location = new System.Drawing.Point(57, 33);
             this.lbl1Codigo.Name = "lbl1Codigo";
             this.lbl1Codigo.Size = new System.Drawing.Size(46, 13);
@@ -192,6 +200,7 @@
             // 
             // cboMarcaEditar
             // 
+            this.cboMarcaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarcaEditar.FormattingEnabled = true;
             this.cboMarcaEditar.Location = new System.Drawing.Point(113, 139);
             this.cboMarcaEditar.Name = "cboMarcaEditar";
@@ -207,6 +216,7 @@
             // 
             // cboCategoriaEditar
             // 
+            this.cboCategoriaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoriaEditar.FormattingEnabled = true;
             this.cboCategoriaEditar.Location = new System.Drawing.Point(113, 177);
             this.cboCategoriaEditar.Name = "cboCategoriaEditar";
@@ -224,6 +234,7 @@
             // 
             // gbxDatosArticulo
             // 
+            this.gbxDatosArticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.gbxDatosArticulo.Controls.Add(this.txtPrecioEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblPrecioEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblCategoriaEditar);
@@ -240,12 +251,12 @@
             this.gbxDatosArticulo.Controls.Add(this.lblImagenEditar);
             this.gbxDatosArticulo.Controls.Add(this.lblDescripcionEditar);
             this.gbxDatosArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxDatosArticulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbxDatosArticulo.Location = new System.Drawing.Point(12, 49);
             this.gbxDatosArticulo.Name = "gbxDatosArticulo";
             this.gbxDatosArticulo.Size = new System.Drawing.Size(390, 307);
             this.gbxDatosArticulo.TabIndex = 3;
             this.gbxDatosArticulo.TabStop = false;
-            this.gbxDatosArticulo.Text = "Detalles";
             // 
             // txtPrecioEditar
             // 
@@ -274,43 +285,58 @@
             // 
             // dgvArticulosEditar
             // 
-            this.dgvArticulosEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulosEditar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulosEditar.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulosEditar.Location = new System.Drawing.Point(647, 39);
+            this.dgvArticulosEditar.Location = new System.Drawing.Point(715, 39);
             this.dgvArticulosEditar.MultiSelect = false;
             this.dgvArticulosEditar.Name = "dgvArticulosEditar";
             this.dgvArticulosEditar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulosEditar.Size = new System.Drawing.Size(528, 337);
+            this.dgvArticulosEditar.Size = new System.Drawing.Size(460, 337);
             this.dgvArticulosEditar.TabIndex = 10;
             this.dgvArticulosEditar.SelectionChanged += new System.EventHandler(this.dgvArticulosEditar_SelectionChanged);
             // 
             // btLimpiar
             // 
-            this.btLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btLimpiar.Location = new System.Drawing.Point(467, 226);
+            this.btLimpiar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btLimpiar.Location = new System.Drawing.Point(0, 381);
             this.btLimpiar.Name = "btLimpiar";
-            this.btLimpiar.Size = new System.Drawing.Size(119, 25);
+            this.btLimpiar.Size = new System.Drawing.Size(289, 36);
             this.btLimpiar.TabIndex = 0;
-            this.btLimpiar.Text = "&Limpiar";
+            this.btLimpiar.Text = "&Limpiar Detalles";
             this.btLimpiar.UseVisualStyleBackColor = true;
             this.btLimpiar.Click += new System.EventHandler(this.btLimpiar_Click);
+            // 
+            // txtIdEditar
+            // 
+            this.txtIdEditar.Location = new System.Drawing.Point(123, 364);
+            this.txtIdEditar.Name = "txtIdEditar";
+            this.txtIdEditar.Size = new System.Drawing.Size(275, 20);
+            this.txtIdEditar.TabIndex = 11;
+            this.txtIdEditar.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.pbxArtEditar);
+            this.panel1.Controls.Add(this.btnModificarArticulo);
+            this.panel1.Controls.Add(this.btLimpiar);
+            this.panel1.Controls.Add(this.btnAgregarArticulo);
+            this.panel1.Controls.Add(this.btnEliminarArticulo);
+            this.panel1.Location = new System.Drawing.Point(408, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(289, 417);
+            this.panel1.TabIndex = 12;
             // 
             // frmEditarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1187, 420);
-            this.Controls.Add(this.btLimpiar);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtIdEditar);
             this.Controls.Add(this.dgvArticulosEditar);
             this.Controls.Add(this.btnSalirEditarArticulo);
-            this.Controls.Add(this.btnEliminarArticulo);
-            this.Controls.Add(this.btnAgregarArticulo);
-            this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.lblEditarArticulo);
-            this.Controls.Add(this.pbxArtEditar);
             this.Controls.Add(this.gbxDatosArticulo);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumSize = new System.Drawing.Size(1062, 459);
@@ -322,6 +348,7 @@
             this.gbxDatosArticulo.ResumeLayout(false);
             this.gbxDatosArticulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulosEditar)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,5 +379,7 @@
         private System.Windows.Forms.TextBox txtPrecioEditar;
         private System.Windows.Forms.Label lblPrecioEditar;
         private System.Windows.Forms.Button btLimpiar;
+        private System.Windows.Forms.TextBox txtIdEditar;
+        private System.Windows.Forms.Panel panel1;
     }
 }

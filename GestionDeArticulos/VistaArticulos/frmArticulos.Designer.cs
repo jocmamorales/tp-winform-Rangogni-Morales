@@ -37,12 +37,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblCategori = new System.Windows.Forms.Label();
             this.cmbCategoría = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(4, 51);
             this.dgvArticulos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -56,12 +58,13 @@
             // btnNuevoArt
             // 
             this.btnNuevoArt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnNuevoArt.Location = new System.Drawing.Point(574, 353);
+            this.btnNuevoArt.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnNuevoArt.Location = new System.Drawing.Point(462, 353);
             this.btnNuevoArt.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNuevoArt.Name = "btnNuevoArt";
-            this.btnNuevoArt.Size = new System.Drawing.Size(122, 29);
+            this.btnNuevoArt.Size = new System.Drawing.Size(110, 25);
             this.btnNuevoArt.TabIndex = 1;
-            this.btnNuevoArt.Text = "+   &Editar Articulo";
+            this.btnNuevoArt.Text = "&Editar Articulo";
             this.btnNuevoArt.UseVisualStyleBackColor = true;
             this.btnNuevoArt.Click += new System.EventHandler(this.btnNuevoArt_Click);
             // 
@@ -133,12 +136,25 @@
             this.cmbCategoría.TabIndex = 9;
             this.cmbCategoría.SelectionChangeCommitted += new System.EventHandler(this.cmbCategoría_SelectionChangeCommitted);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(586, 353);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 25);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "&Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(720, 390);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblCategori);
             this.Controls.Add(this.cmbCategoría);
             this.Controls.Add(this.label1);
@@ -154,7 +170,8 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.Name = "frmArticulos";
-            this.Text = "Artículos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Buscar Artículos";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
@@ -174,5 +191,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCategori;
         private System.Windows.Forms.ComboBox cmbCategoría;
+        private System.Windows.Forms.Button button1;
     }
 }

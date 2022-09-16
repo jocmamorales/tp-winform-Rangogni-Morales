@@ -38,11 +38,12 @@ Etapa 2: Construir la interacción con la base de datos y validaciones correspon
 
 ## PANTALLA DE EDICION DEL ARTICULO
 
-![WhatsApp Image 2022-09-15 at 5 44 23 PM](https://user-images.githubusercontent.com/84431245/190506609-53a1d893-6cdf-436f-a699-9d05b885ecff.jpeg)
+![WhatsApp Image 2022-09-15 at 9 43 44 PM](https://user-images.githubusercontent.com/84431245/190532824-0a5e8897-f9f8-4a2c-bcd1-77c2bb5d94bf.jpeg)
+
 
 ## PANTALLA DE BUSQUEDA
 
-![WhatsApp Image 2022-09-15 at 5 44 24 PM](https://user-images.githubusercontent.com/84431245/190506578-9e8fd32c-6296-44d1-b380-93ea9919f88d.jpeg)
+![WhatsApp Image 2022-09-15 at 9 43 42 PM](https://user-images.githubusercontent.com/84431245/190532830-3082ca24-13c1-41e3-9418-a05fe953e48e.jpeg)
 
 
 
